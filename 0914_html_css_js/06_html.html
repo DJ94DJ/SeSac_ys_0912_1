@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습_설문조사 폼</title>
+</head>
+<body>
+    <h1>설문조사</h1>
+    <form>
+        이름<input type="text" name="name" placeholder="이름을 입력해주세요."/> <br />
+        이메일<input type="text" name="email" placeholder="love@email.com"/> <br />
+         <!-- placeholder 기능은 회색 글자 넣을 수 있다-->
+    </form>
+
+    <h1>나이</h1>
+    <form>
+        <input type="radio" name="age" value="age_10"/>10대 
+        <input type="radio" name="age" value="age_20"/>20대 
+        <input type="radio" name="age" value="age_30"/>30대 
+        <input type="radio" name="age" value="age_40"/>40대 
+        <input type="radio" name="age" value="age_50"/>50대 
+        <input type="radio" name="age" value="age_over_60"/>60대 이상 <br />
+    </form>
+
+    <h1>원하는 강의 (복수응답이 가능합니다.)</h1>
+    <form>
+        <input type="checkbox" name="lecture" value="l_html"/>html 
+        <input type="checkbox" name="lecture" value="l_javascript"/>javascript 
+        <input type="checkbox" name="lecture" value="l_css"/>css <br /><br />
+
+        <textarea name="more_text" rows="6" cols="60" placeholder="하고싶은 말을 써주세요 :)"></textarea>
+        <button>제출</button> 
+        
+        
+
+    </form>
+
+
+
+
+    <!-- textarea (가로세로 설정 가능) -->
+</body>
+</html>

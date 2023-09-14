@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../0914_html_css_js/img/Make_Your_Own_Kind_Of_Music.png" 
+    title="노래 완전 좋아요, 추천!" alt="네가 부르고 싶은 노래를 직접 만드세요! " width="250" height="200" /> 
+    <hr />
+    <h2>회원가입</h2>
+    <form>
+        이름 : <input type="text" name="name" /> <br />
+        이메일 : <input type="text" name="email" /> <br />
+        비밀번호 : <input type="password" name="pw" /> <br />
+        비밀번호 확인 : <input type="password" name="pw2" /> <br />
+
+        <input type="button" value="제출" /> <br />
+        <!-- 인풋 버튼은 보통 이름(name)을 안 넣고 밸류(value)텍스트가 나오게 설정한다. 근데 그냥 대신 버튼 태그를 자주 쓴다고 한다. -->
+        <button>이건 버튼 태그로 만든 제출</button> <br />
+
+        취미를 선택하세요. <br /> 
+        <input type="checkbox" name="hobby" value="축구" /> 축구 <br /> 
+        <input type="checkbox" name="hobby" value="산책" /> 산책 <br />
+        <input type="checkbox" name="hobby" value="독서" /> 독서 <br />
+        <input type="checkbox" name="hobby" value="커피" /> 커피 <br />
+    </form> <br />
+    <!-- 폼태그 안에 인풋을 넣어야 입력하는 칸을 만들수 있다! 
+        벡엔드 데이터 활용할때 체크박스의 name은 동일하게 해야한다, 대신 value 값을 꼭 설정한다. 체크박스는 다지선다다. 
+        (이름 같아도 택1 안됨) -->
+
+
+        <hr /> <br />
+
+        Q. 성별을 선택하세요 <br />
+        <input type="radio" name="gender" value="남성" /> 남성 <br />
+        <input type="radio" name="gender" value="여성" /> 여성 <br />
+        <input type="radio" name="gender" value="비공개" /> 밝히지 않습니다 <br /><br />
+
+        Q. 15세 이상인가요? <br />
+        <input type="radio" name="age_over_15" value="true" /> 네, 저는 15세 이상입니다. <br />
+        <input type="radio" name="age_over_15"value="false"  /> 아니오, 저는 15세 이하입니다. <br /><br />
+
+        <!-- 여러개중 택일 하는 기능 만들기 = radio 기능 -->
+
+        <hr /><br />
+
+        생년월일을 설정해주세요.
+         <br /><input type="date" name="birth" /><br /><br />
+         <!-- 이건 날짜 입력! -->
+
+         좋아하는 색을 알려주세요
+         <br /><input type="color" name="color" /><br /><br />
+
+         즐거운 정도의 범위를 설정하세요.
+         <br /><input type="range" name="range" min="0" max="5" step="1" /><br /><br />
+
+         얼굴 사진 파일을 올려주세요.
+         <br /><input type="file" name="portrait" /><br /><br />
+
+         <!-- 이 인풋들은 사용자가 설정한 값이 밸류 값으로 직접 반영됩니다. -->
+
+         <hr /><br />
+
+         <select name="option_select">
+
+            <optgroup label="옵션1~2">
+                <option value="option1">옵션1</option>
+                <option value="option2">옵션2</option>
+            </optgroup>
+            
+            <optgroup label="옵션3~4">
+                <option value="option3">옵션3</option>
+                <option value="option4">옵션4</option>
+            </optgroup>
+
+         </select>
+
+         <!-- 이 인풋은 목록형 버튼을 만들어줍니다.-->
+         
+    
+</body>
+</html>
