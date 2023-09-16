@@ -1,0 +1,39 @@
+*{
+ color:plum;
+ background: radial-gradient(yellow, purple);
+}
+ /*전체선택자 = '*'뱔 
+ color:
+ rgb
+ hex색상코드등을 쓸수 있다
+ */
+
+div {
+    color:aqua;
+}
+ /*태그선택자
+ 태그에 아무 기호도 안적으면 태그선택자다
+ */
+
+ .orangelover {
+    color: orange;
+ }
+/*클래스(class) 선택자= .하고 이름적기 */
+
+#redboy {
+    color: green;
+ }
+/*아이디(id) 선택자 = #하고 이름적기 */
+
+#list_1 {
+    color:#2d2d2d;
+}
+/*태그를 할때 범위가 넓게 적용하기 보단 
+특정하게 선택자 문법을 맞게 작성하는게 좋다*/
+
+ .bg-lightgreen {
+    background-color: lightgreen;
+}
+/*단어 사이에는 css에서 하이픈(-)이나 언더바(_)로 한다. 
+근데 보통 하이픈(-)을 쓴다*/
+

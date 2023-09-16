@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color:orange !important;
+            background-color: black;
+        }
+        /* 이게 내장 방식 - 이 방식은 헤드에 기입한다. 스타일에 관한 요소를 스타일 태그에 기입한다! 
+        - 자바스크립트에 경우 헤드에만 적지는 않는다. 너무 헤드에 많이 적으면 로딩시간이 길어진다
+        !important 걸면 우선순위가 강해진다. (현재 link가 아래에 있어도 오랜지색이 적용된다.)
+        */
+    </style>
+
+    <link
+    rel="stylesheet" href="./01_css.css"
+    />
+    <!-- 이건 링크 방식 -->/
+
+</head>
+<body>
+    <div style="color: red; background-color: blue;">hello</div> 
+    <!-- 이건 인라인 방식 -->
+
+    <div>이것도 바뀌는가?</div>
+    <div>요것도?</div>
+    <h1>색깔아 나와라 비비디 바비디 부</h1>
+    <h1 style="color: violet;">색깔아 나와라 비비디 바비디 부</h1>
+    <div style="color: yellow;">요것도?</div>
+    <!-- 우선순위 알아두어야 할것
+    
+        제일 우선순위 강한 것은 인라인 태그!
+        그 다음은 링크 태그!
+        가장 약한 것이 내장 태그!
+        나중에 쓰인게 강해진다 
+    -->
+</body>
+</html>
