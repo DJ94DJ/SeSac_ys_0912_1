@@ -1,0 +1,192 @@
+    
+    /* 글자로 쓰면 부모요소에 비례해서 커진다. 
+    하지만 단위 위주로 보자구
+    px : 픽셀 (기본값은 16px)
+    em : 부모요소의 배율
+    rem : 루트이엠의 준말, 
+    % : (숫자)px 하고 (비율)% 하면 그 픽셀의 비율값만큼의 값이 적용됨.
+    ;; */
+
+
+    @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+ 
+
+body {
+    font-size: 16px;
+}
+
+.thick {
+    font-size: 50px;
+    font-weight: 100;
+    font-family: sans-serif;
+}
+
+/* 폰트 웨이트가 100~900으로 나와있다해도 
+종류에 따라 제공하는게 다를 수 있어 그 굵기가 안나올 수도 있다. */
+
+.webfont1 {
+    font-size: 50px;
+    font-weight: 900;
+    font-family: 'Hahmlet', serif;
+}
+
+.webfont2 {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Hahmlet', serif;
+}
+
+.webfont3 {
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Hahmlet', serif;
+}
+
+.webfont4 {
+    font-size: 50px;
+    font-weight: 300;
+    font-family: 'Hahmlet', serif;
+}
+
+.webfont5 {
+    font-size: 50px;
+    font-weight: 100;
+    font-family: 'Hahmlet', serif;
+}
+
+/* 눈누, 구글 웹폰트 등에서 웹폰트를 활용가능하다. */
+
+
+.font-css {
+    font-size: 1.5em;
+   
+}
+
+:root {
+    color :blue;
+    font-size: 20px;
+}
+
+.parents {
+    font-size: 30px;
+}
+
+.child-font-1 {
+    font-size: 1.5em;
+}
+/* 부모요소와 상관해서 적용된 폰트 크기에 맞춰 변형된다.여기에선 30px의 1.5배로 적용되는 것이다. */
+
+.child-font-2 {
+    font-size: 1.5rem;
+}
+/* 부모요소와 상관없이 루트에 적용된 폰트 크기 기준으로 변형된다. */
+
+.width-css {
+    background-color: salmon;
+    width: 500px;
+    height: 500px;
+    /* 해당 영역만큼 블록설정하는 것 */
+}
+
+.width-css-2 {
+    background-color: rgb(153, 115, 111);
+    color: white;
+    min-width: 200px;
+    /* 여백을 200px을 준다는 것, 근데 가로 스크롤이 생긴다.. 완전 불편 피로도 유발*/
+    max-width: 100%;
+    /* height min-hegit  max-height: 100%; 도 있다. */
+    display: inline-block;
+    /* 해당 내용을 감싼다는 것 */
+}
+   
+/* border */
+
+.border-css {
+    border: 1px red solid;
+    border-width: 5px;
+    border-radius: 12px;
+    /* border-color:blue; 위에 것과 동일*/
+    border-style: dashed;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    border-radius: 100%;
+    border: 15px pink solid;
+}
+
+/* 보더를 이용해서 원을 그린것. */
+
+
+/* 외부여백(마진) 중요!! */
+.margin-css {
+    display: inline-block;
+    padding: 50px 100px 150px 300px; 
+    border: 5px red solid;
+    background-color: aqua;
+    margin: 100px 200px;
+
+}
+
+/* 콘텐츠를 패딩이 감싸고, 이걸 보더를 감싸게 된 그러면 보더 바깥에 선이 나오고
+ 그다음이 바깥 간격인 마진
+ 
+ 마진 한번에 정하기 
+
+ 2개 적으면
+ 1.위,아래 2.왼쪽,오른쪽
+
+ 4개 적으면
+ 1.위 2.오른쪽 3.아래 4.왼쪽 으로 적용
+ 따로따로 정할 수도 있다 margin-left 등으로..
+
+ ---------------
+ *****box-sizing 속성
+
+1. content-box (내용만)
+: 콘텐츠 영역을 기준으로 크기를 정함 (기본값)
+(only content)
+
+2. border-box (테두리 기준)
+: 테두리를 기준으로 크기를 정함
+(content + padding + border)
+
+개발 초기 단계에서 두 속성 값 중 하나로 결정하는 것이 좋음!
+그렇지 않으면 요소 크기 계산이 진짜 복잡해진다…
+
+ */
+
+ .box-css {
+    box-sizing: content-box;
+    padding: 20px;
+    border: 10px solid black;
+    width: 200px;
+    height: 200px;
+    word-break:break-all;
+    background-color: pink;
+    margin: 10px;
+    /* 영역의 총합 가로세로크기는 200px아니다 왜냐? 양사이드로 여백이 적용되었기 때문  */
+    
+    
+}
+
+.box-css-2 {
+    box-sizing: border-box;
+    padding: 20px;
+    border: 10px solid black;
+    width: 200px;
+    height: 200px;
+    background-color: skyblue;
+    margin: 10px;
+    /* 테두리의 기준으로 정해졌기 때문에 영역의 총합 가로세로 크기다200px다. 
+    대신 내용영역 크기가 준다. */
+    
+
+
+}
+
+
