@@ -1,0 +1,40 @@
+div .apple {
+    color:rgb(245, 73, 73);
+    background-color: rgb(247, 143, 143);
+}
+/* 하위 선택자 = div 태그 하위에 있는 apple 태그를 
+모두 선택한다는 것 
+자식의 자식까지 적용됨*/
+
+div > .apple {
+    color:rgb(191, 230, 65);
+    background-color: rgb(60, 146, 26);
+
+}
+/*자식 선택자 = div 태그 하위에 있는 것에서만 
+apple 태그를 선택한다는 것 
+자식만 적용됨, 여기선 리스트 안에 있는 것 대신 
+바깥의 span 태그 하나만 적용된다.*/
+
+h1 + ul {
+    color:rgb(244, 211, 1);
+    background-color: rgb(198, 137, 15);
+
+}
+
+h2 ~ ul {
+    color:rgb(244, 211, 1);
+    background-color: rgb(198, 137, 15);
+
+}
+
+/*인접 형제 선택자 = 
+ +를 하면 인접한 한개의 ul 태그 내 요소가 선택됨
+ ~를 하면 모든 형제 태그가 선택됨
+*/
+
+li.apple{
+
+}
+
+/*띄어쓰기 .(점) 찍고 하면 li에서 apple 클래스를 지닌 요소를 선택한다*/

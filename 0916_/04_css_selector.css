@@ -1,0 +1,96 @@
+.div-hover:hover {
+    background-color:lightcoral;
+}
+
+.div-active:active {
+    background-color:rgb(142, 216, 31);
+    color: blue;
+}
+
+.input-focus:focus {
+    background-color:rgb(255, 111, 0);
+    color: rgb(255, 255, 255);
+}
+
+.a:visited {
+    color: pink;
+}
+/*이거 왜 안되는지 확인필요*/
+
+.fruits span:first-child{
+    color: red;
+}
+/* 프루츠 하위 요소중 에서 (만약) 첫번째 자식이 span이라면 발동시킨다는 뜻 */
+
+.fruits div:first-child{
+    color: red;
+}
+/* 따라서 이건 발동을 안한다. 왜냐? div가 있어도 첫번쨰 자식이 아니기 때문. */
+
+.fruits h3:last-child{
+    color: red;
+}
+/* 따라서 이건 된다 */
+
+.fruits span:nth-child(2) {
+    color: blue;
+}
+/* 이건 수박을 지칭한다 두번째 span이니까 */
+
+.fruits div:nth-child(2) {
+    color: blue;
+}
+/* 따라서 이건 안된다 */
+
+
+.fruits-2 span:nth-child(2n+1) {
+    background-color: coral;
+}
+/* 이건 홀수를 선택한다. n은 0부터 시작한다. */
+
+.fruits-2 span:nth-child(2n+2) {
+    background-color: seagreen;
+}
+/* 따라서 이건 짝수를 선택한다. */
+
+.fruits-2 span:nth-child(3n+1) {
+    background-color: rgb(136, 199, 163);
+}
+
+.fruits-3 span:not(.wm) {
+    background-color: fuchsia;
+}
+
+/* not은 괄호 사이에 있는 내용에 해당하는 것을 제외하고 적용한다. 
+따라서 여기서 span 중에서~ wm 클래스가 아닌 span을 택한다. */
+
+.fruits-3 *:not(span) {
+    color: aquamarine;
+}
+
+/* 과제 가상클래스 선택자1 */
+
+.pj-virual-tag h1:hover {
+ color: red;
+}
+
+.pj-virual-tag a:active {
+    background-color: blue;
+   }
+
+.pj-virual-tag input:focus {
+    background-color: orange;
+   }
+
+/* 과제 가상클래스 선택자2 */
+
+
+.pj-virual-tag2 div:nth-child(2n+1) {
+    background-color: navy;
+    color: white;
+}
+
+.pj-virual-tag2 div:nth-child(2n+2) {
+    background-color: yellow;
+    color: black
+}
