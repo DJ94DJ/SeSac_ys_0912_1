@@ -94,3 +94,102 @@
     background-color: yellow;
     color: black
 }
+
+.pj-virual-tag2 div:nth-child(3n+0) {
+    background-color: rgb(8, 250, 169);
+    color: black
+}
+/* 이러면 3배수 설정도 되는군! n은 (0,1,2,3,4,..)*/
+
+/* <!-- 가상 요소 선택자 --> */
+/* <!-- ::before, ::after --> */
+
+div.before-el::before {
+    content: "앞!";
+}
+div.after-el::after {
+    content: "인기상품";
+    background-color: red;
+    color: beige;
+    font-size: 12px;
+    border-radius: 7px;
+}
+
+/* div 태그면서 before-el인 태그를 선택한다는 뜻 
+가상선택자는 꼭 콘텐트 속성을 써야한다. 
+비포에선 앞에 앞이라는 내용을 추가한다. 에프터에선 뒤에 추가한다.
+
+쇼핑몰에서 인기상품, 게시판에서 흥미로운 주제들에 적용하는 요소에 반영하곤한다.
+*/
+
+
+/* <!-- 가상 요소 선택자 실습_01 --> */
+div.box::before {
+    content: "택시";
+}
+div.box::after {
+    content: "빨리";
+    
+}
+
+/* <!-- 속성 선택자 --> */
+/* input[type=text] { */
+    /* background-color: sandybrown; */
+
+/* } */
+/* <!-- input 태그 이면서 타입type(속성)이 text인 요소를 택한것. --> */
+
+/* input[type=password] { */
+    /* background-color: brown; */
+
+}
+
+input[type=name] {
+    background-color: rgb(225, 48, 193);
+
+} 
+
+/* 우선순위 */
+
+.fruits-4 > .st-4 { 
+    background-color: rgb(55, 171, 137);
+}
+/* 이게 위에 있어도 더 강하다. 부모 태그 선택자니까? */
+
+.st-4 {
+    background-color: hotpink;
+}
+
+
+/* 우선순위
+
+!important > 인라인 스타일 > 아이디 선택자
+> 클래스/속성/가상 선택자 > 태그 선택자 > 전체 선택자 
+
+이렇게 섞어쓰면 쓰기 힘들다 같은 요소를 다른 방식으로 선택하지 말자*/
+
+
+/* <!-- 속성 선택자 실습 -->/ */
+
+
+input[disabled] {
+    background-color: red;
+}
+
+/* disabled 속성을 가진 태그 선택해서 빨강
+disabled가 되면 입력되지 않는다. */
+
+input[placeholder=이름] {
+    background-color: orange
+}
+
+/* placeholder 속성이 이름값을 가진 태그 선택해서 오렌지 */
+
+
+input:not([placeholder]) {
+    background-color: blue
+}
+
+/* placeholder 속성을 가지지 않는 태그 선택해서 파랑 */
+
+
