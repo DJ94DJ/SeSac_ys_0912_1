@@ -10,7 +10,7 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-
+    @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
  
 
 body {
@@ -185,8 +185,58 @@ body {
     /* 테두리의 기준으로 정해졌기 때문에 영역의 총합 가로세로 크기다200px다. 
     대신 내용영역 크기가 준다. */
     
-
-
 }
+
+.webfont_pre_1 {
+    font-size: 50px;
+    font-weight: 100;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_2 {
+    font-size: 50px;
+    font-weight: 200;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_3 {
+    font-size: 50px;
+    font-weight: 300;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_4 {
+    font-size: 50px;
+    font-weight: 400;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_5 {
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_6 {
+    font-size: 50px;
+    font-weight: 600;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_7 {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_8 {
+    font-size: 50px;
+    font-weight: 800;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre_9 {
+    font-size: 50px;
+    font-weight: 900;
+    font-family: 'Pretendard', serif;
+}
+.webfont_pre {
+    font-size: 50px;
+    font-weight: 900;
+    font-family: 'Pretendard', serif;
+}
+
 
 
