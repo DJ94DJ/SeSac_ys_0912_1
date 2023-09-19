@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+h1 {
+    font-family: 'Hahmlet', serif;
+}
+
+body {
+    margin: 0;
+    /* 기본값 바디의 여백을 지웠다. */
+}
+
+
+/* 트랜지션 실습 */
+.containter {
+
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    font-family: 'Hahmlet', serif;
+    
+}
+
+.containter:hover {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    transition: 1s;
+    transition-delay: 0.5;
+    
+}
+
+/* 사진쌓기 실습 */
+
+.containter-2 {
+   position: relative;
+   margin: 200px;
+}
+
+.item01 {
+    position: absolute;
+    /* transform: skewY(20deg); */
+    transition: 1s;
+}
+/* 돌아올때도 지연시간이 걸리게 할려면 해당 요소 자체에 트랜지션을 주면 된다!! */
+
+.skew_1 {
+    top:0px;
+    left:0px;
+    z-index: 3;
+}
+
+.skew_2 {
+    top:-50px;
+    left:300px;
+    z-index: 2;
+}
+
+.skew_3 {
+    top:-100px;
+    left:600px;
+    z-index: 1;
+}
+
+/* 컨테이너에 호버가 될 경우, 해당 요소에 적용한다는 뜻 */
+.containter-2:hover > .item01 {
+    transform: skewY(20deg);
+}
+
+

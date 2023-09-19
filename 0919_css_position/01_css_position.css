@@ -121,5 +121,54 @@ body {
     position: relative;
     width: 500px;
     height: 500px;
-    background-color: rgb(190, 213, 229);
+    background-color: rgb(230, 244, 255);
 }
+
+.item_03_imgskew {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(29, 83, 123);
+    border-radius: 10px;
+}
+
+ /* skew 기울이기 rotate 회전하기 scale 키우기 */
+.item_03_imgskew:hover {
+    transform: skewX(30deg) skewY(20deg) rotateX(80deg) rotateY(60deg);
+    transition: 2s;
+}
+
+.item_03_imgscale {
+    position: absolute;
+    top: 120px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(29, 83, 123);
+    border-radius: 10px;
+}
+
+.item_03_imgscale:active {
+    transform: scale(120%) translate(20px, 20px);
+    transition: 1s;
+}
+/* translate 살짝 이동하기 */
+
+.item_03_imgper {
+    position: absolute;
+    top: 240px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(29, 83, 123);
+    border-radius: 10px;
+}
+
+.item_03_imgper:active {
+    width: 500px;
+    transform: skewX(30deg) skewY(20deg) rotateY(60deg) perspective(100px);
+    transition: transform 2s; linear 2s;
+    /* 변하는 지속시간 
+    설정: 속성명/지속시간/타이밍함수/대기시간 순으로 진행
+    특정 값 변하길 원한다면 해당 값 적기 */
+}
+
+/* 과제 해오기_완료함 */
