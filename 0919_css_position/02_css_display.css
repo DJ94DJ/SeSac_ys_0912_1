@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+h1 {
+    font-family: 'Hahmlet', serif;
+}
+
+div {
+    display: block;
+}
+
+.box {
+    display: inline-block;
+    /* 본래 div는 세로로 쌓이나 '인라인 블럭'으로 바꾸면 가로로 쌓을 수 있다. */
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    margin: 30px;
+    padding: 20px;
+}
+
+.css-display {
+    height: 100px;
+    display: block;
+}
+
+.d-inline-block {
+    display: inline-block;
+    margin: 30px; 
+    padding: 20px; 
+    color: aliceblue;
+    background-color: black; 
+    width: 100px; 
+    height: 100px;
+}
+/* 인라인 블럭 : 인라인과 블럭의 특징을 합침 -
+인라인 : 컨텐츠의 크기만큼만 차지
+블럭 : width, height, margin 정상작동 */
+
+/* flex 완전 중요!
+주로 부모 요소에 적용한다. 이를 적용하면 자식요소(하위요소 아님 주의!!)를 
+인라인 블록으로 바꾸게 한다. (자신은 안바뀜)
+이렇게 하는 이유는 span과 달리 간편하게 마진등 패딩을 주기 위함이다. 
+부모는 그대로 가로의 100퍼센트를 차지한다. */
+
+.container_01 {
+    display: flex;
+    background-color: black; 
+    height: 1000px;
+    flex-direction: row; 기본값 가로정렬
+    /* flex-direction: column; 세로정렬됨 */
+    /* flex-direction: row-reverse; 거꾸로-가로정렬됨 (맨끝에 붙음 */
+    /* flex-direction: column-reverse; 거꾸로-세로정렬됨 (맨아래에 붙음 */
+}
+
+.box_01 {
+    margin: 30px; 
+    padding: 20px; 
+    width: 300px;
+    height: 100px;
+    background-color: blueviolet;
+}
+
+/*실습_flex direction  */
+.container_pj01 {
+    display: flex;
+    background-color: palegreen; 
+    width: 500px;
+    height: 500px;
+    /* flex-direction: */
+}
+
+.container_pj02 {
+    display: flex;
+    background-color: rgb(150, 212, 49); 
+     width: 500px;
+     height: 500px;
+     flex-direction: row-reverse;
+}
+
+.container_pj03 {
+    display: flex;
+    background-color: rgb(187, 193, 23); 
+     width: 500px;
+     height: 500px;
+     flex-direction: column;
+}
+
+.container_pj04 {
+    display: flex;
+    background-color: rgb(225, 183, 15); 
+     width: 500px;
+     height: 500px;
+     flex-direction: column-reverse;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    text-align: center;
+    color: azure;
+
+    /* line-height: 100px; */
+    /* line-height-텍스트 한줄이 먹을 수 있는 높이를 뜻함. 
+    박스의 높이 크기와 동일하게 하면 정중앙에 먹일 수 있다. 
+    나머지는 플랙스와 저스티파이 콘텐츠로 진행한다.*/
+
+
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+
+.pj01 {
+    background-color: rgb(46, 160, 46); 
+}
+
+.pj02 {
+    background-color: rgb(28, 112, 28); 
+}
+
+.pj03 {
+    background-color: rgb(4, 83, 4); 
+}
+
+.pj04 {
+    background-color: rgb(10, 53, 121); 
+}
+
+.pj05 {
+    background-color: rgb(79, 16, 118); 
+}
+
+.pj06 {
+    background-color: rgb(162, 12, 112); 
+}
+
+.pj07 {
+    background-color: rgb(226, 53, 105); 
+}
+
+.pj08 {
+    background-color: rgb(255, 107, 107); 
+}
+
+
+
+
+
+.container_02 {
+    display: flex;
+    background-color: rgb(255, 212, 162); 
+     width: 350px;
+     height: 550px;
+     flex-direction: row;
+     flex-wrap: wrap-reverse; 
+     /* 랩 리버스는 위에 닿는다 */
+     /* flex-wrap: wrap; 이건 아래에 닿는다 */
+     justify-content: space-evenly;
+     /* justify-content: flex-start가 기본값 
+     center로 하면 가운데로 간다.
+     space-between 가장 멀리 떨어질수 있을 만큼 떨어진다.
+     space-around 여백을 동일하게 잡아 떨어뜨려 정렬한다. (테두리에 여백)
+     space-evenly 각 줄마다 여백을 동일하게 잡는다. 
+     justify-content는 flex-direction에 따라 주축(가로, 세로)에 대한 정렬을 설정한다. */
+     align-items: center;
+     /* 교차축에 대한 정렬 (박스기준 세로!)
+     center는 중앙
+     flex-start 플렉스의 시작점 기준 (현재 아래)
+     flex-end 플렉스의 끝점 기준 (현재 위)
+     */
+     align-content: flex-start;
+     /* align-content:center 정중앙을 기준으로 모아준다. */
+     margin-top: 20px;
+     /* 요소별로 여백주는 거임 근데 왜 안먹지?? */
+}
+
+.pj03_container_01 {
+    display: flex;
+    background-color: rgb(255, 212, 162); 
+     width: 500px;
+     height: 500px;
+     flex-direction: row;
+     justify-content: flex-start;
+     align-items: center;
+     align-content: flex-start;
+
+}
+
+.pj03_container_02 {
+    display: flex;
+    background-color: rgb(255, 212, 162); 
+     width: 500px;
+     height: 500px;
+     justify-content: space-evenly;
+     flex-wrap: wrap;
+     align-content: center; 
+     
+
+}
+
+.pj03_container_03 {
+    display: flex;
+    background-color: rgb(255, 212, 162); 
+     width: 500px;
+     height: 500px;
+     justify-content: space-evenly;
+     align-items: center;
+     align-content:center; 
+}
+
+.pj03_container_04 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(156, 89, 13); 
+     width: 500px;
+     height: 500px;
+     align-items: center; 
+     align-content:center; 
+}
+
+.pj03_container_05 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgb(255, 184, 102); 
+     width: 500px;
+     height: 500px;
+     align-items: center; 
+    align-content:center; 
+    justify-content: center;
+}
+
+.pj03_container_06 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: rgb(255, 184, 102); 
+     width: 500px;
+     height: 500px;
+     align-items: center; 
+     align-content:center; 
+     justify-content:center;
+}
+
+
+.pj03_container_07 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgb(255, 184, 102); 
+     width: 500px;
+     height: 500px;
+     align-items: flex-start;
+     align-content:flex-start;
+     justify-content: space-between;
+}
+
+
+.pj03_container_08 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: rgb(255, 184, 102); 
+     width: 500px;
+     height: 500px;
+     align-items: flex-start;
+     align-content:flex-start;
+     justify-content: space-between;
+}
