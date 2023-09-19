@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+h1 {
+    font-family: 'Hahmlet', serif;
+}
+
+body {
+    margin: 0;
+    /* 기본값 바디의 여백을 지웠다. */
+}
+
+
+.containter {
+    /* static:기본값 = position: static; */
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    border-radius: 15%;
+    margin: 20px;
+}
+
+.item {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid 20px lavender;
+}
+
+.number1 {
+    position: relative;
+    left: 50px;
+    top: 30px;
+    background-color: crimson;
+}
+
+.number2 {
+    position: absolute;
+    right: 30px;
+    bottom: 100px;
+    background-color: orange;
+}
+
+.number3 {
+    position: fixed;
+    right: 100px;
+    top: 100px;
+    background-color: gold;
+}
+
+.number4 {
+    position: fixed;
+    right: 150px;
+    top: 150px;
+    background-color: forestgreen;
+}
+
+.number5 {
+    position: fixed;
+    right: 250px;
+    top: 210px;
+    background-color: dodgerblue;
+}
+
+.number6 {
+    position: fixed;
+    right: 350px;
+    top: 230px;
+    background-color: mediumorchid;
+}
+
+

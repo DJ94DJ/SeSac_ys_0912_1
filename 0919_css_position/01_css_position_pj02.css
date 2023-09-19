@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+h1 {
+    font-family: 'Hahmlet', serif;
+}
+
+body {
+    margin: 0;
+    /* 기본값 바디의 여백을 지웠다. */
+}
+
+
+.containter {
+    /* static:기본값 = position: static; */
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background-color: black;
+    margin: 20px;
+}
+
+.grass_1 {
+    z-index: 2;
+    position: absolute;
+    left: 25px;
+    bottom: 200px;}
+
+.grass_2 {
+    z-index: 2;
+    position: absolute;
+    left: 200px;
+    bottom: 200px;}
+
+.item {
+    z-index: 1;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.eye_white {
+    position: absolute;
+    left: 25px;
+    top: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.eye_black {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+/* 프라이드 컬러 코드를 활용해봤다 */
+.number1 {
+    left: 20px;
+    top: 30px;
+    background-color: #E40303;
+}
+
+.number2 {
+    left: 100px;
+    top: 90px;
+    background-color: #FF8C00;
+}
+
+.number3 {
+    left: 200px;
+    top: 120px;
+    background-color: #FFED00;
+}
+
+.number4 {
+    left: 310px;
+    top: 150px;
+    background-color: #008026;
+}
+
+.number5 {
+    left: 370px;
+    top: 130px;
+    background-color: #24408E;
+}
+
+.number6 {
+    left: 450px;
+    top: 135px;;
+    background-color: #732982;
+}
+
+
+
