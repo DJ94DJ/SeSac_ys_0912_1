@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* @keyframes (내용) 사이에 원하는 애니매이션 이름을 적는다. */
+@keyframes movetoright {
+   
+/* from : 여기에서 시작해서
+to : 여기로 간다. */
+
+
+
+/* 구간을 퍼센트(%)로 나눠줄수도 있다! */
+
+/* 정답 */
+from {
+    margin-left: 100%;
+    width: 300%;
+    /* 앞에 왼쪽 마진(여백을 100퍼센트 주었다가 없에는 방식.. */
+}
+
+
+to {
+    margin-left: 0%;
+    width: 100%;
+}
+
+
+/*
+내가 적은 코드 div의 크기로 뭔갈 해보려고 했다.
+    from {
+        width: 100px;
+        height: 100px;
+        left: 200%;
+
+    }
+
+
+    to {
+        width: 100%;
+        height: 100px;
+        left: 0%;
+    }
+
+
+}
+*/
+
+.box {
+    width: 150px;
+    height: 100px;
+
+    /* 포지션! - 이게 있어야 애니매이션 된다. */
+    position: relative;   
+
+    /* name 
+    (duration) 
+    (timing-function) 
+    (delay) 
+    (횟수 *infinite 적으면 무한반복) 
+    (derection 애니매이션 방향 alternate-왔다갔다 하는 것) 
+    fill-mode 순으로 가능 */
+    animation: movetoright 3s ease-in-out 1s 10;
+    
+}

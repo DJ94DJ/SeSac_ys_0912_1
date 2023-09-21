@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* @keyframes (내용) 사이에 원하는 애니매이션 이름을 적는다. */
+@keyframes movetoleft {
+   
+/* from : 여기에서 시작해서
+to : 여기로 간다. */
+
+
+
+/* 구간을 퍼센트(%)로 나눠줄수도 있다! */
+
+    from {
+        left: 100%;
+        top: 0px;
+        bottom: 0px;
+        border-radius: 0%;
+        background-color: red;
+
+    }
+
+     {
+        left: 450px;
+        top: 0px;
+        bottom: 0px;
+        background-color: gold;
+        border-radius: 50%;
+    }
+
+    50% {
+        left: 450px;
+        top: 450px;
+        background-color: rgb(19, 199, 85);
+        border-radius: 0%;
+    }
+
+    75% {
+        left: 0px;
+        top: 450px;
+        background-color: rgb(0, 195, 221);
+        border-radius: 50%;
+
+    }
+
+    100% {
+        left: 0px;
+        top: 0px;
+        background-color: rgb(19, 199, 85);
+        border-radius: 0%;
+    }
+
+
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 20px;
+
+    /* 포지션! - 이게 있어야 애니매이션 된다. */
+    position: relative;   
+
+    /* name 
+    (duration) 
+    (timing-function) 
+    (delay) 
+    (횟수 *infinite 적으면 무한반복) 
+    (derection 애니매이션 방향 alternate-왔다갔다 하는 것) 
+    fill-mode 순으로 가능 */
+    animation: movetoleft 6s ease-in-out 3s 6;
+    
+}
