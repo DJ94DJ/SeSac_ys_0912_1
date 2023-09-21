@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    
+    <script>
+        //연산자
+        // # 대입 연산자 = 
+        let num1 = 5;
+        let num2 = num1;
+
+
+        // # 비교 연산자 ==, === (===는 자료형까지 비교한다)
+    
+        console.log("1" == 1) //true
+        console.log("1" === 1) //false
+
+        // >=, >, <=, < 비교 : 부등호 연산자
+        console.log(80 >= 90) //false, 크거나 같다
+        console.log(90 > 80) // true
+
+        //!= !== '같지 않다' 비교하는 연산자
+        console.log('80' != 80) // 값이 같음으로 false
+        console.log('80' !== 80) // 값이 같으나 자료형이 다르므로 true
+        console.log('dj' != 'dji') // 다르므로 true
+
+
+        // # 산술 연산자
+
+        console.log(80+70) // 150 더하기
+        console.log(8*7) // 56 곱하기
+        console.log(10/2) // 5 나누기
+
+        console.log(10 % 2) // 0 나머지 구하기
+        
+        let num = 5;
+        console.log(num % 2 == 1) // true
+        // 이걸 나머지를 이용하면 배수인지 아닌지 등에 유용하게 활용된다.
+
+        console.log(2**5) //2의 5승 (거듭제곱)
+
+        // 논리 연산자
+
+        // 4 < num < 8 를 증명하고 싶을 때
+        console.log( num > 4 && num < 8 ) //&& and란 뜻 앞뒤조건 모두 트루여야 트루가 됨
+
+        console.log( num > 8 || num < 8 || num == 8) // ||(쉬프트 + 원화 기호 누르기) or란 뜻으로 툴중 하나라도 맞을경우 트루
+        
+        let bool = true;
+        let undef;
+        console.log( !bool ) //false
+        console.log( !undef ) //true = ! 아무런 값이 없단 뜻
+        console.log( !false )
+        console.log( !null )
+
+        //
+        let num4 = 5;
+        num4 = num4 + 1; //자기 자신에 들어있던 값을 활용해 연산 후 다시 자신에게 할당하는 행위를 할때 +=로 연산자를 줄일 수 있다.
+        num4 += 1; //뺄경우는 -= 
+        console.log(num4)
+
+
+
+        // 증감 연산자
+        //앞에 쓰냐 뒤에 쓰냐에 따라 달라진다
+        let num5 = 5, num6 = 5;
+        let result1 = num5++; //result 에서 num5를 ++를 한다는 거 (더하겠다)
+        let result2 = ++num6; // num5에 ++를 해서 값을 넣은것 (num6에 1을 더한다) (해당 num6값을 변동한다는 뜻)
+    
+        console.log( !null )
+        console.log(result1)
+        console.log(result2)
+
+        console.log( !null )
+        console.log(num5)
+        console.log(num6)
+        //값이 같게 나온다??
+
+        //함수
+
+        //function 함수이름 ((변수값)) {(구현부=Scope)}
+
+
+//명시적 함수
+        fun_ex1();
+        // 명시적 함수를 적으면 좋은점, 함수를 앞에서 작동해도 잘된다. 함수표현식은 안된다.
+
+        function fun_ex1 () {
+            console.log("howdy");
+        }
+
+        fun_ex1(); //실행시키려면 이렇게 함수명을 적어야함.
+        //호이스팅 (선언하는 함수를 다 위로 뺀다는 것)
+        
+
+//함수 표현식
+        const fun_ex2 = function () {
+            console.log("안녕");
+        }
+
+        fun_ex2();
+
+        const fun_ex3 = () => {
+            console.log("hello");
+        } //화살표 함수 선언
+
+        fun_ex3();
+
+        //매개변수 여부, 반환값 여부
+        // 매개변수 X, 반환값 X
+            function fun_ex01 () {
+                console.log("fun_ex01");
+                // no return
+            }
+    
+        // 매개변수 O, 반환값 X
+            function fun_ex01 (num) { //매개변수가 있음. 함수 외부에서 내부로 값을 전달하고 싶을때 사용하는 변수임.
+               console.log(num);
+                // return
+            }
+
+            //함수 외부에서 내부로 값을 전달하고 싶을때 사용하는 변수임. 
+            function fun_ex02() {}
+
+            let number = 5;
+                fun_ex02(number);
+
+        // 매개변수 X, 반환값 O 반화 : 함수 내부의 값을 함수 외부로 전달하고 싶을때
+            function fun_ex03() {
+                console.log("fun_ex3");
+                return "hello"
+            }
+            let hello = fun_ex03();
+            console.log(hello);
+
+        // 매개변수 O, 반환값 O
+            function fun_ex04(num1, num2) {
+                console.log("funex04실행한다");
+                return num1+num2;
+            }
+
+            let sum = fun_ex04(2, 3) // 여기서 매개변수는 인자 (값을 주는 입장에서, 매개변수는 함수 입장에서의 용어 num1 or num2 같은..)
+            console.log(sum);
+
+
+//실습(1) 멀티플라이 함수 만들기 
+            function multifly(num1, num2) {
+                console.log("multifly 실행합니다");
+                return num1*num2;
+            }
+
+            console.log(multifly(3, 7));
+            console.log(multifly(2, 2));
+
+//실습(2) 스퀘어 함수 만들기 
+            const square = (num1) => {
+                console.log("square 실행합니다", num1**2);
+              
+            }
+
+            square(4);
+            square(11);
+            square(5);
+
+    </script>
+
+</body>
+</html>
