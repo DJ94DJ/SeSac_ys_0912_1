@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+</head>
+<body>
+
+
+    
+    <script>
+       //조건문 기본 if(){} else{}
+       
+       /* 1차
+       if(조건1) {
+            // 조건이 ture(참)일때 실행할 코드
+       }
+
+       // 2차
+       if(조건1) {
+            // 조건이 ture(참)일때 실행할 코드
+       } else {
+            // 조건1이 거짓일 때 실행할 코드
+        }
+
+        // 3차
+        if(조건1) {
+            // 조건이 ture(참)일때 실행할 코드
+        } else if(조건2) {
+             // 조건1에 false(거짓)이고 조건2에 ture(참)일때 실행할 코드
+             //여러 조건이 올수도 있다! 쭉~ 
+             //else가 없어도 된다! (없으면 그냥 종료됨)
+        } else {
+            // 조건1,2가 모두 거짓일 때 실행할 코드
+        } */
+
+        let name = "lily"
+
+        if(name === "lily") {
+            console.log("lily 리더님 안녕하세요");
+        }
+        else if (name === "linda") {
+            console.log("linda 리더님 안녕하세요")
+        }
+        else {
+            console.log("누구세요?");
+        }
+
+        
+    
+        if (name === "linda") {
+            console.log("linda 리더님 안녕하세요")
+        }
+        else {
+            console.log("누구세요?");
+        }
+
+        // if 문의 시작은 if고 끝은 else다. 따라서 여러 if문이 뭉쳐있을 경우 다음 if 문이 나온다면 그건 별개의 if문이다.
+
+        //중첩된 if 문
+        // 3번이상 겹치면 헷갈린다. 그럴때는 함수로 한번 묶어서 정리하면 편하다.
+        let number = 5;
+        if (number > 4) {
+            console.log("d");
+
+            if (number > 7) {
+                console.log("a");
+                
+            } else {
+                console.log("b")
+            }
+        } else {
+            console.log("c");
+        }
+
+        //switch 문
+
+
+        
+        number = 3; //세미콜론이다.
+        switch (number) {
+            case 1: //콜론을 유의하자!
+                console.log("1")
+                console.log("1번 케이스로군요")
+                break;
+
+            case 2:
+                console.log("2")
+                console.log("2번째 경우로군")
+                break;
+
+            case 3:
+                console.log("3")
+                console.log("3번째네!")
+                break;
+            default:
+                console.log("모르겠네..");
+                break;
+        }
+
+
+    </script>
+
+</body>
+</html>

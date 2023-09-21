@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+</head>
+<body>
+
+
+    
+    <script>
+
+        //switch 문
+
+
+        
+        number = "b"; //세미콜론이다.
+        switch (number) {
+            case "a": //콜론을 유의하자!
+                console.log("1")
+                console.log("1번 케이스로군요")
+                break; //케이스당 브레이크를 하나씩 꼭 해야한다!
+
+            case "b":
+                console.log("2")
+                console.log("2번째 경우로군")
+                break;
+
+            case "c":
+                console.log("3")
+                console.log("3번째네!")
+                break;
+            default:
+                console.log("모르겠네..");
+                break;
+        }
+
+        //if 문을 간단하게 만드는 삼항 연산자
+        //조건 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드 
+        //단 참일때, 거짓일때 각각 한줄밖에 못적음
+
+        let name = "lily"
+        //(조건내용) ? (참일 때 실행할 코드) : (거짓일 때 실행할 코드)
+        //간단하게 쓸 때 좋다.
+        name == "lily" ? console.log("옹 안녕!") : console.log("누구냐 넌")
+
+        let msg = name == "lily" ? "안녕하세요 릴리 리더님" : "댁은 누구세요?";
+        console.log(msg)
+
+    </script>
+
+</body>
+</html>
