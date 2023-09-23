@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 반복문_강의_01</title>
+</head>
+<body>
+    <h1>JS배열</h1>
+    <script>
+
+        let numbers = [];
+        for(let i=1; i<=100; i++){
+            numbers.push(i);
+            // 해당 원소를 앞에 적힌 배열에 추가한다는 뜻
+            // 인자로 넘어간 값(i)을 추가
+        }
+        //배열을 만든거임.
+
+        let sum1 = 0;
+        let sum2 = 0;
+        let sum3 = 0;
+
+        for(let i=0; i<numbers.length; i++) { //for 문
+            sum1 += numbers[i];
+        }
+
+        for(let num of numbers) { //for of 문
+            sum2 = sum2 + num;
+        }
+
+        numbers.forEach((num) => { //for each 문
+            sum3 = sum3 + num;
+        });
+
+        console.log(sum1, sum2, sum3);
+
+        // 과제 별찍기
+
+
+            let number = Number(prompt("원하는 숫자를 입력하세요"))
+            console.log(`별 ${number}개`)
+            let star = "";
+            //입력하고 싶은 요소의 속성을 정의하기
+
+            for(let i=0; i<number; i++){
+                for(let j=0; j<=i; j++){
+                    star = star + "*"
+                }
+                star = star + "\n";
+                // 엔터를 더한다는 뜻
+           }
+        
+           console.log(star);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+       
+
+
+    </script>
+    
+
+    
+</body>
+</html>

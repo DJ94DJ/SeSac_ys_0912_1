@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 반복문_강의_01</title>
+</head>
+<body>
+    <h1>JS반복문: 특정 코드를 여러번 반복하고 싶을 때 사용한다.</h1>
+    <h2>for, while, for/of, do/while</h2>
+    <script>
+        let answer = 0
+        //구하고자 하는 답 선언
+
+       for(let i=0; i<=100; i++) {
+            // 명령문(반복하고 싶은 코드 기입)
+           if(i%2 == 0 || i%5 == 0) {
+            // ||=or란 뜻 /2의 배수거나 5의 배수라면~ 이란 뜻 (%가 나머지 값을 구하는 것이므로 0이면 해당 배수란 뜻)
+            answer = answer + i;
+            //해당 조건에 맞는 값(i)을 전부 더해서 총합을 만들라는 뜻
+           }
+        }
+        console.log(answer);
+        console.log("합계 구하기 완료");
+
+
+//13 배수 및 홀수 찾기 
+        for(let i=0; i<=10000; i++) {
+            // 명령문(반복하고 싶은 코드 기입)
+           if(i%13 == 0 && i%2 == 1) {
+            // &&=and란 뜻
+            console.log(i);
+            //해당 조건에 맞는 값(i)을 콘솔로그로 내보내란 뜻
+           }
+        }
+        console.log(answer);
+        console.log("13 배수 및 홀수 찾기 완료");
+
+
+//13 배수 및 홀수 찾기 프롬프트
+
+while(true) {
+    let number = Number(prompt("0부터 10000까지의 양수를 입력하세요"))
+    if(number%13 == 0 && number%2 == 1) {
+            // &&=and란 뜻
+            console.log(number);
+            console.log(`${number}는 13 배수 및 홀수가 맞습니다`);
+           }
+           console.log(`${number}는 13 배수 및 홀수가 아닙니다`);
+            break;
+}
+
+
+console.log("13 배수 및 홀수 찾기 완료");
+
+// for (number >0; number <= 10000; ) {
+//             // 명령문(반복하고 싶은 코드 기입)
+//            if(number%13 == 0 && number%2 == 1) {
+//             // &&=and란 뜻
+//             console.log(number);
+//             console.log(`${number}는 13 배수 및 홀수가 맞습니다`);
+
+//             //해당 조건에 맞는 값(number)을 콘솔로그로 내보내란 뜻
+//            }
+//            else {
+//             console.log(`${number}는 13 배수 및 홀수가 아닙니다`);
+//            }
+//         }
+//         console.log("13 배수 및 홀수 찾기 완료");
+
+
+
+//구구단
+        for(let i=2; i<10; i++) {
+            // 명령문(반복하고 싶은 코드 기입)
+            console.log(`${i}단`)
+            // 해당 i값과 단을 입력하라는 뜻
+            for(let j=1; j<10; j++) {
+                console.log(`${i} X ${j} = ${i*j}`)
+                //선행된 값을 입력하고 나면 해당하는 j값을 적용한 수식을 기입하라는 뜻
+            }
+        }
+
+        console.log("구구단 완료");
+
+        
+
+
+
+
+
+    </script>
+    
+
+    
+</body>
+</html>
