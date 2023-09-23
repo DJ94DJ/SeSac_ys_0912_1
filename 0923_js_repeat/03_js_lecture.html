@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 반복문_강의_01</title>
+</head>
+<body>
+    <h1>JS배열에서 활용할 수 있는 다양한 메소드</h1>
+    <script>
+
+//배열에서의 기타 메소드
+
+           const arr = [1,2,3,4,5];
+
+           let arrnum = [];
+           for(let i=1; i<=5; i++){
+            arrnum.push(i);
+            } 
+
+
+           let arr_filter = arr.filter(function (a) {
+            return a > 3;
+           });
+           // 조건에 부합하는 요소 검색해서 배열로 변환
+
+           console.log(arr_filter);
+
+           let val_find = arr.find(function (a) {
+            return a > 3;
+           });
+           // 조건에 부합하는 요소 검색해서 값으로 변환
+
+           console.log(val_find);
+
+           let val_map = arr.map(function (c) {
+            return c + 3;
+           });
+
+           console.log(val_map);
+           // 배열에 있는 값 각각에다 값을 더해준다.
+
+           arr.pop()
+           console.log("pop을 실행했습니다.", arr);
+           //배열 뒤에서 제거
+
+           arr.push(6)
+           console.log("push를 실행했습니다.", arr);
+           //배열 끝에서 추가
+
+           arr.shift()
+           console.log("shift를 실행했습니다.",arr);
+           //배열 앞에서 제거
+
+           arr.unshift(7)
+           console.log("unshift를 실행했습니다.",arr);
+           //배열 앞에서 추가
+
+           console.log("현재 arr의 요소를 출력합니다", arr)
+           console.log("include를 통해 요소 '4'의 유무 여부를 실행했습니다.",arr.includes(4));
+           console.log("include를 통해 요소 '5'의 유무 여부를 실행했습니다.",arr.includes(5));
+
+           console.log("length를 통해 요소의 길이 값을 출력했습니다.",arr.length);
+           console.log("indexOf를 통해 해당 요소가 위치한 배열의 순서값을 출력했습니다.",arr.indexOf(7));
+           console.log("indexOf를 통해 해당 요소가 위치한 배열의 순서값을 출력했습니다.",arr.indexOf(3));
+
+           arr.reverse()
+           console.log("reverse를 통해 배열을 거꾸로 반환했습니다.", arr);
+
+           //arr.join("첫번째", "두번째", "세번째")
+           //괄호안의 문자열 병합
+
+           console.log("join을 통해 요소를 문자열로 합쳐봅니다",["a","p","p","l","e"].join(""))
+           console.log("join을 통해 요소를 문자열로 합쳐봅니다",arr.join(""))
+           console.log("join를 통해 배열을 해당 문구를 사이사이 추가해 문자열로 반환합니다.", arr.join("*"));
+
+           //문자열 관련 내장 메소드
+
+           let strg = 'Happy Day~!  ';
+           console.log("문자열 strg를 출력합니다",strg)
+           console.log("length을 통해 문자열 strg의 길이를 체크합니다", strg.length)
+
+           //toUpperCase()&toLowerCase() : 문자열 전체를 대문자, 혹은 소문자로 변경
+           console.log("toUpperCase()을 통해 strg 문자열 전체를 대문자로 변경", strg.toUpperCase())
+
+           //indexOf(‘’) : 매개변수로 문자열을 받아서 몇번째 인덱스인지 숫자 반환
+           console.log("indexOf을 통해 strg 문자열을 받아서 몇번째 인덱스인지 숫자 반환", strg.indexOf("D"))
+
+           //slice(startIdx[,endIdx]) : start 부터 end-1 까지 슬라이싱, 빼옴(?) 매개
+           // 반영이 아니라 반환하기 때문에 따로 정의를 선언해야한다.
+           console.log("slice을 통해 문자열에서 슬라이싱 (start부터 end-1까지로 환산)", strg.slice(5, 9))
+           let sliced = strg.slice(5, 9);
+           console.log(sliced)
+           console.log(strg)
+
+           //replace(문자열1, 문자열2) :문자열1을 문자열2로 변경
+           console.log("replace을 통해 A 한개를 찾아 Z로 변경", strg.replace("a", "Z"))
+           console.log("replaceAll을 통해 A 한개를 찾아 Z로 변경", strg.replaceAll("a", "Z"))
+
+           //repeat(n) : 문자열에 대해 n번 반복
+           console.log("repeat(n)을 통해 문자열에 대해 n번 반복(n=3)", strg.repeat(3))
+
+           //trim() : 문자열의 양끝 공백 없애기
+           console.log("trim() : 문자열의 양끝 공백 없애기", strg.trim())
+
+           //split() :  매개변수로 들어온 문자열을 기준으로 str을 쪼개서 배열로 저장
+
+           console.log("split()을 통해 매개변수로 들어온 문자열을 기준으로 str을 쪼개서 배열로 저장(띄어쓰기로)", strg.split(' '))
+           console.log("split()을 통해 매개변수로 들어온 문자열을 기준으로 str을 쪼개서 배열로 저장", strg.split('')) 
+           console.log("split()을 통해 매개변수로 들어온 문자열을 기준으로 str을 쪼개서 배열로 저장(a로)", strg.split('a'))         
+
+           /**여러 메소드를 연결해서 사용하는 개념!
+            * • 단, 사용한 메소드가 반환(return) 값을 가지고 있는 경우에만 사용이 가능!
+            * • ‘hello’.split(“”) ➡ [‘H’, ‘e’, ‘l’, ‘l’, ‘o’] 라는 배열이 반환 됨
+            * • 배열에는 reverse() 라는 메소드가 존재
+            * • ‘hello’.split(“”).reverse() 는 [‘H’, ‘e’, ‘l’, ‘l’, ‘o’].reverse() 와 동일!
+            * • [‘H’, ‘e’, ‘l’, ‘l’, ‘o’].reverse() ➡ [‘o’,’l’,’l’,’e’,’H’] 와 동일
+            * • ‘hello’.split(“”).reverse().join(“”) ➡ [‘o’,’l’,’l’,’e’,’H’].join(“”) 과 동일 */arr
+
+            console.log("hello");
+            console.log("hello".split(""));
+            console.log("hello".split("").reverse());
+            console.log("hello".split("").reverse().join(""));
+            console.log("hello".split("").reverse().join("").toUpperCase())
+
+            // 배열.push()
+            let jakehello = "hello".split("").reverse().join("").toUpperCase().split("").reverse();
+            jakehello.push(" Jake","!")
+            // push의 경우 문자열 원본자체를 변환시키는 기능이라 따로 공간을 마련해서 담아야 한다(체인기능 불가)
+            console.log(jakehello.join("").toUpperCase())
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+       
+
+
+    </script>
+    
+
+    
+</body>
+</html>

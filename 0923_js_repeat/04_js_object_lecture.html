@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트와 DOM</title>
+</head>
+<body>
+    <h1>자바스크립트와 DOM</h1>
+    <script>
+        let num = 5;
+        let num2 = num; 
+        num += 5;
+        console.log(num, num2);
+        // 기본 자료형 : 값이 복사된 것이라 별개의 것으로 인식. 쌍둥이 같은거임.
+
+        let arr = [1, 2, 3, 4, 5];
+        let arr2 = arr;
+        arr2.reverse();
+        console.log(arr, arr2);
+        // 객체 자료형 : 주소를 기반으로 배열은 동기화된다. 값을 복사해서 전달하지 않는다. 사실상 별명 같은거임.
+       
+        // js 배열(객체 자료형) '깊은 복사'하는 법은?!
+        let arr3 = arr.slice();
+        // 슬라이스로 우회하는 방법. 아무것도 안자르니 값이 그대로 복사된 것.
+        let arr4 = arr;
+        arr3.reverse();
+        console.log(arr3, arr4);
+
+        // 표준 객체
+        //new Date: 오늘 날짜를 받아올수 있다.
+
+        let whatisdate = new Date();
+        console.log(whatisdate);
+
+        let yesterday = new Date("2023-09-22");
+        console.log(yesterday);
+
+        let milisecdate = new Date(776100000000);
+        console.log(milisecdate);
+
+        console.log(whatisdate.getFullYear());
+        console.log(whatisdate.getMonth()+1);
+        console.log(whatisdate.getDate());
+        console.log(whatisdate.getDay());
+        console.log(whatisdate.getTime());
+        console.log(whatisdate.getHours());
+
+        let expired = new Date("2023-09-30").getTime();
+        let today = new Date();
+
+        if(expired < today) {
+            console.log("콩쥐야 조떄써!")
+        } else {
+            console.log("콩쥐야 물부어!")
+        }
+
+        /** 이건 따로 공부해보자 
+         * • Math.PI
+         * • Math.E
+         * • Math.min()
+         * • Math.max()
+         * • Math.random()
+         * • Math.round()
+         * • Math.floor()
+         * • Math.ceil() */
+
+
+
+  
+    
+    </script>
+
+
+</body>
+</html>
