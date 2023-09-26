@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document_간단 계산기 만들기</title>
+</head>
+<body>
+    <div>
+    값1: <input type="text" id="value1" /> <br />
+    값2:  <input type="text" id="value2" /> <br />
+    연산자: <input type="text" id="math" /> <br />
+    결과: <input type="text" id="result" /> <br />
+    </div>
+
+    <div>
+        <button type="button" onclick="dothemath()">계산하기</button>
+        <button type="button" onclick="doreset()">초기화하기</button>
+    </div>
+
+    
+
+    <script>
+        
+        function dothemath(){
+            let getvalue1 = parseInt(document.getElementById("value1").value);
+            let getvalue2 = parseInt(document.getElementById("value2").value);
+            //parseInt 받은 데이터의 문자열 값을 정수로 반환한다.
+
+            let getmath = document.getElementById("math").value
+            // getmath에서 연산자의 데이터를 받는다.
+            //그런데 마지막에 value를 붙이는 이유는 무엇인가요?
+            
+            let getresult;
+            switch(getmath){
+
+                //받은 연산자에 따라 switch로 다른 기능을 작동시킨다.
+                // break를 만나기 전까지 조건에 맞으면 해당 구문을 작동시킨다.
+
+                case '+' : result = getvalue1 + getvalue2; break;
+                case '-' : result = getvalue1 - getvalue2; break;
+                case '*' : result = getvalue1 * getvalue2; break;
+                case '/' : result = getvalue1 / getvalue2; break;
+
+                default : alert("값을 입력해주세요.");
+                // 값에 해당하지 않는 값을 입력하면 맨 마지막의 alert를 작동시킨다.
+
+            }
+            document.getElementById("result").value = result;
+            // 해당 값을 result로 반환한다.
+
+
+            
+        }
+
+        function doreset(){
+
+            document.getElementById("value1").value = "";
+            document.getElementById("value2").value = "";
+            document.getElementById("math").value = "";
+            document.getElementById("result").value = "";
+
+            //input 값은 innerText으로 못바꾼다. 왜냐? 사용자가 입력한 값이기에.. 따라서 그냥 값을 받아서 빈 문자열로 바로 반환시키면 된다!
+
+            // let getvalue1_2 = parseInt(document.getElementById("value1").value);
+            // let getvalue2_2 = parseInt(document.getElementById("value2").value);
+            // let getmath_2 = document.getElementById("math").value;
+            // let getresult_2 = parseInt(document.getElementById("result").value);
+            
+            // getvalue1_2.innerText = ""; 
+            // getvalue2_2.innerText = ""; 
+            // getmath_2.innerText = ""; 
+            // getresult_2.innerText="";
+        }
+        
+
+
+
+
+        // -----------
+        // function twinkle(){
+        //     box1.classList.toggle("red")
+
+        //     //같은 작동기제
+        //     //if (box1. classList.contains("red")) box1.classList.remove("red")
+        //     //else box1.classList.add("red")
+        // }
+
+        // const input = document.querySelector("input");
+
+        // function addPlaceholder() {
+        //     input.setAttribute("placeholder", "이름을 입력하세요");
+        //     input.setAttribute("id", "input_name");
+        // }
+
+        // // 특정 요소의 자식 요소들에 접근
+        // const container = document.querySelector(".container");
+        // console.log(container.children[1]) //children은 기본적으로 배열을 반환
+
+        // //특정 요소의 부모 요소에 접근
+        // console.log(box1.parentNode) //기본적으로 하나의 요소만 반환
+
+        // // 특정 요소의 형제 요소에 접근
+        // console.log(box1.nextElementSibling) // 다음 형제 요소 하나
+        // console.log(boxes[1].previousElementSibling) // 이전 형제 요소 하나
+
+        // function addBox() {
+        //     // container 선택을 해야하고..
+        //     const container2 = document.querySelector(".container");
+
+        //     // 추가할 요소를 만들어야 한다..
+        //     const newBox  = document.createElement("div");
+        //     //newBox.classList.add("box");
+        //     newBox.className = "box olive";
+
+        //     // container에 '자식'으로 추가를 실시해야한다..! (container의 자식으로 추가한다. (append. appendChild))
+        //     // 만약 box (container의 자식) '안'에 뭔가를 추가하고 싶다면 container 대신 box를 부모대상으로 해서 똑같이 진행하면 된다.
+        //     // container2.appendChild(newBox); // Node 객체만 넘길수 있다. 문자열 안됨! *반환값을 낸다.
+        //     // container2.append("newBox이건문자임"); // 문자열을 인자로 넘길수 있음
+
+
+        //     // container의 첫번째 자식으로 추가를 한다 (prepend) 이렇게 하면 앞쪽 자식으로 추가된다!!
+        //     // container2.prepend(newBox)
+
+        //     // container의 형제로 추가한다 (before, after)
+        //     // container2.before(newBox)
+        //     // container 바깥에 추가된다.!
+        //     container2.after(newBox)
+
+        // }
+
+
+
+    </script>
+
+</body>
+</html>

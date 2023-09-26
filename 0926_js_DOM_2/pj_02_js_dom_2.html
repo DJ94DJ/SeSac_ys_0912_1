@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document_방명록 만들기</title>
+    <style> 
+    table {
+        border-style: solid;
+        border: 1;
+    }
+
+    </style>
+</head>
+<body>
+   
+    <div>방명록 입니다</div>
+
+    <form>
+        <input type = "hidden" id="num">
+        <input type = "hidden" id="Date">
+        작성자: <input type="text" id="name" /> <br /><br />
+        내용: <textarea type="text" id="content" cols="60" placeholder="하고싶은 말을 써주세요"></textarea>
+    </form>
+    <button type="button" onclick="doupload()">작성</button>
+
+    <table id="guest_table">
+        <tr>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+        <tbody id="tt">
+
+        </tbody>
+        </tr>
+    </table>
+
+    <script>
+        
+        // input 2개 값 끌어오기
+        // 번호 작성일
+            // tbody의 childern 개수, tbody 선택해서 tbody.children.length에서 순서 끌어오기
+        // tr 태그 만들기
+        // td 태그 4개 만들기
+        // 만든거 tr태그의 자식으로 추가하기
+        // tbody 태그의 자식요소로 추가하기
+
+
+        function doupload(){
+            let getname = document.getElementById("name").value;
+            let getcontent = document.getElementById("content").value;
+            //문자열 값을 그대로 받는다.
+
+            //let datestring= '${date.}'
+
+            let getDate = new Date().toLocaleDateString
+            ("ko",{
+                year:"numeric",
+                month:"short",
+                day:"numeric",
+            });
+            
+            
+
+            // 날짜값을 받느다
+
+            let getTable = document.getElementById("guest_table");
+            // 테이블 선언
+
+            let makeRow = document.createElement('tr');
+            // 행을 만든다
+
+            //아까 만든 행에 값을 넣는다.
+            let do_table_num = document.createElement('td');
+            do_table_num.innerHTML = getTable.rows.length -1;
+            
+            let do_table_name = document.createElement('td');
+            do_table_name.innerHTML = getname;
+
+            let do_table_content = document.createElement('td');
+            do_table_content.innerHTML = getcontent;
+
+            let do_table_date = document.createElement('td');
+            do_table_date.innerHTML = getDate;
+
+            //따로 행을 선언하지 않아도 값을 넣을 수가 있나??
+
+
+            //makeRow 자식으로 넣기
+            makeRow.appendChild(do_table_num);
+            makeRow.appendChild(do_table_name);
+            makeRow.appendChild(do_table_content);
+            makeRow.appendChild(do_table_date);
+
+            getTable.querySelector('#tt').appendChild(makeRow);
+            //쿼리 셀렉터를 이용하되 아이디를 지칭하려녀 #를 쓰면 된다!
+            //getTable.querySelector('tbody').appendChild(makeRow);
+            // 앞서 선언한 getTable에서 tbody를 선택하고 내부에 해당 내용(makerow)을 기입한다.
+            
+            }
+            
+    </script>
+
+</body>
+</html>

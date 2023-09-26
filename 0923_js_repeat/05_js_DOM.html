@@ -6,11 +6,16 @@
     <title>DOM 기초 다지기</title>
 </head>
 <body>
-    <div id="box" class="box">안뇽</div>
+    <div id="box" class="box">안뇽
+        <div>나는야 box의 첫번째 자식</div>
+    </div>
     <div id="box2" class="box">사과</div>
     <div id="box3" class="box">바나나</div>
     <div id="container" class="box item">반가워</div>
-    <div id="box4"><b>보잉보잉</b></div>
+    <div id="box4"><b>보잉보잉</b>
+        <div>나는야 box4의 첫번째 자식</div>
+        <div>나는야 box4의 두번째 자식</div>
+    </div>
     <span>hello span</span>
 
 
@@ -27,6 +32,9 @@
         console.log(elByClass[0]);
         console.log(elByClass[1]);
         console.log(elByClass[2]);
+
+        /** console.log("자식 가져오기");
+        console.log(elByClass[0].children.innerText); 안된다..*/ 
 
         
         console.log("태그로 스판 가져오기");
@@ -100,6 +108,8 @@
 
         //elById2.innerText= "또잉또잉 <b>즐거워!</b>"
         //텍스트 변경하기 - 이건 반영 안된다.
+
+        
 
 
 
