@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+  <style>
+    .container {
+        width: 600px;
+        height: 400px;
+        background-color: beige;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(155, 155, 155);
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .orange {
+        background-color: orange;
+    }
+
+    .yellow {
+        background-color: gold;
+    }
+
+    .olive {
+        background-color: forestgreen;
+    }
+
+</style>
+</head>
+<body>
+    <!-- jQuery 문법은 자바스크립트에서 파생되었으나 별개로 자바스크립트 문법과 다른 독자적인 부분이 있다. -->
+    
+
+    <input type= "text" name= "name"id= "input_1"value= "lily"/>
+    <!-- Modified the onclick attribute values -->
+    <button type= "button" onclick= "useAttr()">Attr() 사용하기</button >
+    <button type= " button" onclick ="useVal()">val() 사용하기</button >
+    <button type =" button" onclick ="useCss()">css() 사용하기</button >
+    <span id ="span1">hello</span >
+    <button type =" button" onclick="useText()">Text() 사용 하기</button >
+    <button type =" button" onclick="useAppend()">append() 사용 하기</button >
+    <button type =" button" onclick="useRemove()">remove() 사용 하기</button >
+    <button type =" button" onclick="useEmpty()">empty() 사용 하기</button >
+
+
+    <button type =" button" onclick="useParent()">parent() 사용 하기</button >
+    <button type =" button" onclick="useParents()">parents() 사용 하기</button >
+        <button type =" button" onclick="controlClass()">클래스 조작 하기</button >
+    
+
+
+
+    <div class="container">
+        <div class="box red" id="red"></div>
+        <div class="box orange"></div>
+        <div class= "box yellow"></div> <!-- Modified the class name from "yellow" to "box yellow" -->
+    </div>
+
+
+    <script>
+        // 기본 문법: $("/선택자 내용/"),동작함수();
+        //JS는? document.get~~~/ document.querySelector~~~
+        // 요소 .innerHTML .append()
+
+        //jQuery는 무조건 함수형태!
+
+        // id가 input_1인 태그를 선택해, 그 태그의 value를 가져온다
+        // let value = $("#input_1").val();
+        //console.log$($("#input_1")) //jQ는 알아서 무조건 여러개를 선택한다.
+         //console.log(value)
+
+        // 태그를 선택해, 그 태그의 value를 설정한다
+        //$("input_1").val("설정하고 싶은 값");
+            //JS로 하면..
+        //let value = document.getElementById("input_1").value = '설정하고싶은 값'';
+
+        function useVal() {
+            let value = $("#input_1").val();
+            console.log(value);
+            $("input_1").val("설정하고 싶은 값");
+
+        }
+
+        function useCss() {
+            //.css() :스타일을 변경
+            const span = $("#span1")
+            span.css("font-size", "30px");
+            span.css("color", "blue");
+        }
+
+        function useAttr() {
+            $("input_1").val("")
+            $("input_1").attr("placeholder","이름을 입력하세요");
+
+        }
+
+        function useText() {
+            $("#span1").text("hellooooooo");
+            $("#span1").html("hellooooooo <b>lily</b>");
+        }
+        
+
+        // 요소 추가하는 거 자주 쓰임!!!
+        function useAppend() {
+
+            // const container2 = document.querySelector(".container");
+            // const newBox = document.createElement("div");
+            // newBox.className = "box red";
+            // container2.append(newBox);
+
+            // container의 마지막 자식으로 추가
+            $(".container").append(`<div class="box red"></div>`);
+
+            // container의 첫 자식으로 추가
+            //$(".cotainer").prepend(`<div class="box red"></div>`);
+            
+            // container의 앞 형제로 추가
+            //$(".cotainer").before(`<div class="box red"></div>`);
+
+            // container의 뒤 형제로 추가
+            //$(".cotainer").after(`<div class="box red"></div>`);
+
+        }
+
+        // 요소 빼는 거 자주 쓰임!!!
+        function useRemove() {
+            $(".box.orange").remove();
+        }
+
+        
+        //전부삭제
+        function useEmpty() {
+            $(".container").empty();
+
+
+        //const container = document.querySelector(".container")
+        //container.innerHTML = "";
+        //container의 내용으 비우겠다.
+        }
+
+        function useParent() {
+            //Parent()
+            console.log("parent", $(".box.red").parent())
+
+            //next()
+            console.log("next", $(".box.red").next())
+
+            //prev()
+            console.log("prev", $(".box.orange").prev())
+
+            //children()
+            console.log("children", $(".container").children())
+        } 
+
+        function useParents() {
+            //Parents()
+            console.log("parents", $(".box.red").parents())
+        }
+
+        
+        //컨트롤 클래스 진짜 자주 쓰인다!!!!!
+        function controlClass() {
+        // 앞에 요소에 클래스를 추가하는 코딩
+        //$("#red").removeClass(" red")
+        //$(".box.red").addClass("")
+
+        //
+        const redBox= $("#red") 
+        if(redBox.hasClass("red")) {redBox.removeClass("red")} else {redBox.addClass ("red");}
+
+        }   
+       
+        
+    </script>
+
+
+
+</body>
+</html>
