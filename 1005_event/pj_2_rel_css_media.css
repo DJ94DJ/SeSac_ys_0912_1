@@ -1,0 +1,162 @@
+
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: ;
+}
+
+p {
+    font-family: ;
+}
+
+.container {
+    display: flex;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border: solid 3px red;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+
+
+@media screen and (min-width: 700px
+/* 이럴땐 작은 화면에서 작업을 기준으로 잡아서 한다. */
+) {
+    body {
+        background-color: skyblue;
+        /* 적은 거만 덮어쓰게 된다. */
+    }
+
+    .box {
+        background-color: black;
+    }
+}
+
+@media screen and (max-width: 700px
+/* 보통 하나로 통일 */
+) {
+    body {
+        background-color: orange;
+        
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box {
+        background-color: lightskyblue;
+    }
+
+}
+
+:root {
+    --nav-height-lg: 100px;
+    --nav-height-sm: 60px;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* HEADER */
+  header {
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    position: fixed; 
+  }
+
+  /* 768px 보다 클때의 header */
+  header .inner {
+    background-color: lightblue;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+
+  /* LOGO */
+  header .inner .logo {
+    color: white;
+    font-size: 30px;
+  }
+
+  header .inner .menu {
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+
+  }
+
+  header .inner .menu li {
+    font-weight: bold;
+  }
+
+  /* 미디어 쿼리 작성 768px 이하일 때  */
+
+
+  @media screen and (max-width: 768px
+
+) {
+    header {
+        width: 100%;
+        height: 70px;
+        z-index: 100;
+        position: fixed; 
+      }
+
+    header .inner {
+        background-color: lightblue;
+        height: 200%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+    header .inner .logo {
+        color: white;
+        font-size: 30px;
+      }
+
+
+      header .inner .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: aliceblue;
+    
+      }
+
+      header .inner .menu li {
+        font-weight: bold;
+      }
+
+}
+
+  ---------
+
+  
+

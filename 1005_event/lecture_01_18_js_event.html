@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 리스너</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+    <script>
+        //아래 코드는 container 클래스를 가진 div 태그가 로드되기 전에 실행을 하게 됨.
+        console.log($(".container"));
+
+        //로딩 이벤트 "" html, body 내부가 로드된 후 실행할 코드를 걸어준다.
+        $(document).ready(function(){ //핸들러(handler)
+            //body가 로드된 후 실행시키고 싶은 코드
+            console.log($(".container"));
+        })
+        
+        //j쿼리 3.0이후 부터는 위의 방식은 비권장 이렇게 바뀐다.
+        $(function(){
+             //body가 로드된 후 실행시키고 싶은 코드
+             console.log($(".container"));
+        })
+    
+    </script>
+
+    <style> 
+        .container {
+            background-color: gold;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 로딩 이벤트 : html이 로드된 후 바로 실행할 코드 걸어준다. -->
+    <div class="container"></div>
+
+    <div class="container"></div>
+
+    <input type="password", name="pw"/>
+
+    <script>
+        // 해당 선택하는 코드가 뒤에 있어야 인식이 된다. 그런데 앞에다 코드를 적어야 한다면? = 로딩 이벤트
+        console.log($(".container"));
+    </script>
+
+    <script>
+        console.log(window);
+        //동적 바인딩, 정적 바인딩
+        //화살표 함수는 정적 바인딩! > 부모요소의 this를 저장 (여기선 윈도우)
+        //function 함수 : 동적 바인딩 -> 호출할 때를 고려해서 this를 결정. (이벤트를 발생시킨 요소)
+
+
+        //  $(".container").click(function(){
+        //     // 클릭 함수 : 클릭할때 적용
+        //     //event가 걸린 요소를 this에 담음 *화살표 함수에 넣음 안된다.
+        //     console.log(this); //window 화살표 함수로 하면 부모요소가 선택되는데. 그러면 (화살표로 한담녀) 여기선 윈도우가 선택된다.
+        //     //지금은 콘테이너 자기 자신으로 선택됨.
+
+        //     $(this).css("background-color", "red");
+        //     //$(".container").css("background-color", "red");
+        //  })
+
+         $(".container").mouseover(function(){
+            // 마우스오버 함수 : 커서가 올라갔을때
+            //event가 걸린 요소를 this에 담음 *화살표 함수에 넣음 안된다.
+            console.log(this); //window 화살표 함수로 하면 부모요소가 선택되는데. 그러면 (화살표로 한담녀) 여기선 윈도우가 선택된다.
+            //지금은 콘테이너 자기 자신으로 선택됨.
+
+            $(this).css("background-color", "blue");
+            //$(".container").css("background-color", "red");
+         })
+
+         $(".container").mouseout(function(){
+            // 마우스아웃 함수 : 커서가 벗어났을때
+            //event가 걸린 요소를 this에 담음 *화살표 함수에 넣음 안된다.
+            console.log(this); //window 화살표 함수로 하면 부모요소가 선택되는데. 그러면 (화살표로 한담녀) 여기선 윈도우가 선택된다.
+            //지금은 콘테이너 자기 자신으로 선택됨.
+
+            $(this).css("background-color", "green");
+            //$(".container").css("background-color", "red");
+
+         })
+
+         // 두개 동시에 설정하는 호버
+         $(".container").hover(
+            function(){
+            // 마우스아웃 함수 : 커서가 들어을때
+            //event가 걸린 요소를 this에 담음 *화살표 함수에 넣음 안된다.
+            console.log(this); //window 화살표 함수로 하면 부모요소가 선택되는데. 그러면 (화살표로 한담녀) 여기선 윈도우가 선택된다.
+            //지금은 콘테이너 자기 자신으로 선택됨.
+
+            $(this).css("background-color", "pink");
+            //$(".container").css("background-color", "red");
+            }, 
+            function(){
+            // 마우스아웃 함수 : 커서가 벗어났을때
+            //event가 걸린 요소를 this에 담음 *화살표 함수에 넣음 안된다.
+            console.log(this); //window 화살표 함수로 하면 부모요소가 선택되는데. 그러면 (화살표로 한담녀) 여기선 윈도우가 선택된다.
+            //지금은 콘테이너 자기 자신으로 선택됨.
+
+            $(this).css("background-color", "orange");
+            //$(".container").css("background-color", "red");
+
+         })
+
+         $(document).scroll(
+         //if (document.body.scrollHeight >= "스크롤 위치") { (하고싶은 동작 입력) }
+
+
+         function(){
+            console.log(document.body.scrollHeight);
+
+            console.log("hello");
+         })
+
+
+         //keydown: 키보드에서 손을 뗄 때
+         //keyup: 키보드에서 손을 댈 때
+        //  $("input[name=pw]").keydown(function(event){
+        //     //console.log("key:", event.key); 
+        //     if (event.key == "Enter") console.log(this.value); 
+        //     //지금은 콘테이너 자기 자신으로 선택됨.
+
+        //     //옛날 방식 키코드 13=엔터
+        //     if (event.keyCode == "13") console.log(this.value); 
+
+        //     })
+        //     //login();
+
+            //화살표 함수버전
+        $(".container").click((event) => {
+            console.log(event.target);
+            $(event.target).css("background-color", "black");
+        })
+
+        // //on : 이벤트를 걸겠다 지금 안된다.
+        // $(".container").on("keyup", function(event){
+        //     //console.log("key:", event.key); 
+        //     if (event.key == "Enter") console.log("on 이벤트"); 
+        //     //지금은 콘테이너 자기 자신으로 선택됨.
+
+        //     });
+
+            // on: 이벤트를 걸겠다. (어떤 이벤트? 미정!)
+        $("input[name=pw]").on("keyup", function(event){
+            // console.log("key: ", event.key)
+            if(event.key == "Enter") console.log("value: ", this.value); // login();
+            // if(event.keyCode == 13) console.log("value: ", this.value); 
+        });
+
+    </script>
+         </body>
+</html>

@@ -1,0 +1,67 @@
+:root {
+    /* 메인컬러 */
+    --color-main : violet;
+    --height-header-lg : 80px;  
+}
+
+.container {
+    margin-top: var(--height-header-lg);
+    width: 500px;
+    height: 500px;
+    background-color: var(--color-main);
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    background-color: darkred;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: gold;
+}
+
+/* @media 미디어 유형 and 크기 규칙 */
+
+/* @media screen */
+
+/* 
+@media print {
+    .container {
+        background-color: blue;
+        적은 거만 덮어쓰게 된다. 
+    }
+} */
+
+
+@media screen and (min-width: 700px
+/* 700px 이상일 경우 덮어 쓴단 뜻 */
+/* 이럴땐 작은 확면에서 작업을 기준으로 잡아서 한다. */
+) {
+    .container {
+        background-color: pink;
+        /* 적은 거만 덮어쓰게 된다. */
+    }
+}
+
+@media screen and (max-width: 500px
+/* 700px 이하일 경우 덮어 쓴단 뜻 */
+/* 보통 하나로 통일 */
+) {
+    .container {
+        background-color: rgb(190, 66, 87);
+        flex-direction: column;
+        /* 적은 거만 덮어쓰게 된다. */
+    }
+}
+
+
