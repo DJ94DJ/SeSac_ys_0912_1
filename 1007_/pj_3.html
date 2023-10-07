@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+    <!-- j쿼리 -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.6/jquery.fullPage.min.js"></script>
+    <!-- 풀페이지 -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.6/jquery.fullPage.min.css" rel="stylesheet">
+<!-- 풀페이지 css -->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- 부트스트랩 css -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+<!-- 애니메이트 css -->
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 스위트 알러트 -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<!-- 차트 -->
+
+
+</head>
+
+<style>
+
+    .text_1{
+        text-align: center;
+    }
+
+    .image_1{
+        display: flex;
+        justify-content: center;
+    }
+    
+    :root {
+  --black: #000;
+  --white: #fff;
+  --lavender: #ac84dc;
+  --gold: #e4b634;
+  --dark-gray: #828695;
+}
+
+body {
+  font: 20px/1.5 sans-serif;
+  color: var(--black);
+}
+
+p {
+  margin-bottom: 30px;
+}
+
+a,
+a:hover {
+  color: inherit;
+}
+
+.btn {
+  margin-top: 40px;
+  border-radius: 4px;
+}
+
+.btn,
+.btn:hover {
+  background: var(--lavender);
+}
+
+.text span {
+  font-size: 16px;
+}
+
+section:nth-child(odd)
+/* 홀수 페이지 색깔 */
+{
+  background: var(--gold);
+}
+
+section:nth-child(even)
+/* 짝수 페이지 색깔 */
+{
+  background: var(--dark-gray);
+}
+
+section:first-child
+/* 메인 페이지 색깔 */
+{
+  background: var(--lavender);
+}
+
+#fp-nav ul li a span {
+  background: var(--white);
+}
+
+.fp-overflow {
+  display: flex;
+  height: 100vh;
+}
+
+.fp-overflow > * {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.animate__animated {
+  animation-delay: calc(var(--index) * 0.3s);
+}
+
+@media (min-width: 1300px) {
+  .fp-is-overflow > .fp-overflow {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 575px) {
+  .text {
+    max-width: 90%;
+  }
+}
+
+.showoff {
+    display: flex;
+    justify-content: center;
+}
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 2;
+  font-size: 14px;
+  color: var(--black);
+  background: var(--white);
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
+}
+
+</style>
+
+<body>
+    <div id="fullpage">
+       
+        <section class="section">
+         <div class="container">
+           <div class="row">
+             <div class="col-sm-8 col-sm-offset-2">
+               <h1 class="text-center">김선생의 비밀</h1>
+             </div>
+            </div>
+          </div>
+        </section>
+       
+        <section class="section second">
+
+          <div class="container">
+            <div class="row">
+                <h1 class="text_1">김선생은 왜 맛있을까요?</h1> <br />
+              <div class="image_1 is-animated">          
+                <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nature.jpeg">
+              </div>
+              <div class="col-4 text-center is-animated__single">
+                 <button type="button" class="btn btn-lg" onclick="showAlert_1()">그러게요</button>
+              </div>
+            </div><!--end of row-->
+          </div><!--end of container-->
+
+        </section>
+      
+        <section class="section third">
+          <div class="container">
+
+            <div class="row">
+                <h1 class="text_1">김선생은 왜 비쌀까요?</h1> <br />
+              <div class="image_1 is-animated">
+                <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tech_(1).jpeg">
+              </div>
+              
+               <div class="col-xs-12 text-center is-animated__single">
+                 <button type="button" class="btn btn-lg" onclick="showAlert_2()">물가가 올라서?</button>
+              </div>
+            </div><!--end of row-->
+
+          </div><!--end of container-->
+        </section>
+    
+        <section class="section fourth">
+          <div class="container">
+            <div class="row">
+                <h1 class="text_1">김선생의 비밀은 과연 무엇일까요?</h1> <br />
+                <div class="image_1 is-animated">
+                    <img class="img-responsive" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/tech_(1).jpeg">
+                  </div><br/>
+                
+                  <div class="showoff"><input type="button" value="알고 싶으신가요.." onclick="showAlertAndChart();" /></div>
+
+              <div class="col-xs-12 text-center is-animated__single">
+                 <button type="button" class="btn btn-lg" onclick="showAlertAndChart()">알고 싶으신가요..</button>
+              </div>
+              <!-- 버튼을 클릭하면 함수가 나와야 하는데 이렇게 할 경우 나오지 않는다.. -->
+
+            </div><!--end of row-->
+          </div><!--end of container-->
+        </section>
+  
+    </div>
+
+    <script>
+(function($) {
+  
+  'use strict';
+
+  // variables
+  var $isAnimatedSecond = $('.second .is-animated'),
+      $isAnimatedSecondSingle = $('.second .is-animated__single'),
+      $isAnimatedThird = $('.third .is-animated'),
+      $isAnimatedThirdSingle = $('.third .is-animated__single'),
+      $isAnimatedFourth = $('.fourth .is-animated'),
+      $isAnimatedFourthSingle = $('.fourth .is-animated__single');
+
+  // initialize fullPage
+  $('#fullpage').fullpage({
+
+    navigation: true,
+    onLeave: function(index, nextIndex, direction) {
+    
+      /**
+      * use the following condition: 
+      *
+      *   if( index == 1 && direction == 'down' ) {
+      *
+      * if you haven't enabled the dot navigation
+      * or you aren't interested in the animations that occur 
+      * when you jump (using the dot navigation) 
+      * from the first section to another sections 
+      */
+      
+      // first animation
+      if( index == 1 && nextIndex == 2 ) { 
+        
+        $isAnimatedSecond.addClass('animated fadeIn'); 
+        // 첫번째 그림
+        $isAnimatedSecond.eq(0).css('animation-delay', '.3s');
+        $isAnimatedSecond.eq(1).css('animation-delay', '.6s');
+        $isAnimatedSecond.eq(2).css('animation-delay', '.9s');
+        // 이건 뭔지 모르겠음, 무효화시키면 애니매이션이 안먹음
+
+        $isAnimatedSecondSingle.addClass('animated fadeIn').css('animation-delay', '1.7s');
+        // 버튼에 적용됨
+      }
+
+    /**
+      * use the following condition: 
+      *
+      *   else if( index == 2 && direction == 'down' ) {
+      *
+      * if you haven't enabled the dot navigation
+      * or you aren't interested in the animations that occur 
+      * when you jump (using the dot navigation) from the first section to the third one 
+      */
+      
+      // second animation
+      else if( ( index == 1 || index == 2 ) && nextIndex == 3 ) {
+        // 무효화 시키면 페이지 넘어가고 애니매이션 적용 안됨
+
+        $isAnimatedThird.eq(0).addClass('animated fadeIn').css('animation-delay', '.3s'); 
+        $isAnimatedThirdSingle.addClass('animated fadeIn').css('animation-delay', '1.2s');
+      }
+
+      
+     /**
+      * use the following condition:
+      *
+      *   else if( index == 3 && direction == 'down' ) {
+      *
+      * if you haven't enabled the dot navigation
+      * or you aren't interested in the animations that occur 
+      * when you jump (using the dot navigation) 
+      * from the first or second section to the fourth one 
+      */
+      
+      // third animation
+      else if( ( index == 1 || index == 2 || index == 3 ) && nextIndex == 4 ) {
+
+        $isAnimatedFourth.addClass('animated fadeIn').css('animation-delay', '.6s');
+        $isAnimatedFourthSingle.addClass('animated lightSpeedIn').css('animation-delay', '1.2s');
+      }
+    }
+
+  });
+  
+})(jQuery);
+
+function showAlert_1() {
+    swal("김밥은 원래 맛있어요", "당연한 소리지만", "success");
+}
+
+function showAlert_2() {
+    swal("아뇨", "예전에도 많이 비쌋어요", "error");
+}
+
+
+function showAlertAndChart() {
+    swal("김선생의 비밀이 궁금하시나요?", "그렇다면 알려드리지요.", "info");
+
+    new Chart(document.getElementById("bar-chart"), {
+  type: 'bar',
+  data: {
+    labels: ["단무지의 순수함","김의 고소함","암탉 스트레스 관리","참기름 불순물","아질산나트륨 첨가율"],
+    datasets: [{ 
+        data: [9,8,2,3,0],
+        label: "김선생",
+        backgroundColor: "lightpink",
+        borderColor: "red",
+        borderWidth: 4
+      },  { 
+        data: [5,4,7,6,8],
+        label: "김밥천국",
+        backgroundColor: "skyblue",
+        borderColor: "blue",
+        borderWidth: 4
+      }, { 
+        data: [7,7,4,8,2],
+        label: "고봉민 김밥",
+        backgroundColor: "yellow",
+        borderColor: "gold",
+        borderWidth: 4
+      }, 
+ 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'World population per region (in millions)'
+    }
+  }
+});
+}
+
+      </script>
+
+
+</body>
+</html>

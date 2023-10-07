@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/837ff3adc1.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --nav-height-lg: 100px;
+        --nav-height-sm: 60px;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      /* HEADER */
+      header {
+        width: 100%;
+        height: var(--nav-height-lg);
+        z-index: 100;
+        /* position: fixed; */
+      }
+
+      /* 768px 보다 클때의 header */
+      header .inner {
+        background-color: lightblue;
+        height: 100%;
+        display: flex;
+        align-items: center; /* 높이 가운데로 */
+        justify-content: center;
+        position: relative;
+   
+        /* 포지션을 릴레이티브로 해서 부모요소를 옮기는 것 */
+
+        /* 여기서 문제 - 이글루만 한쪽으로 옮길 수 있나? 
+        플렉스나 저스타파이 콘텐츠로 할 수 없다. 포지션을 사용할 수 있다!! */
+
+      }
+
+      /* LOGO */
+      header .inner .logo {
+        color: white;
+        font-size: 30px;
+        position: absolute; 
+        left : 15%; 
+        /* 부모요로소부터 50px or 10% 갑승로 주는것 */
+        /* 앱솔루트가 중요 키!!!!! = 부모 요소를 기준으로 하는거 */
+
+      }
+
+      header .inner .menu {
+
+        font-weight: 800;
+        display: flex;
+
+      }
+
+      header .inner .menu li {
+        margin:  0 15px;
+        padding : 10px;
+      }
+
+      /* 미디어 쿼리 작성 768px 이하일 때  */
+
+      @media screen and (max-width: 768px) {
+        header {
+            height : var(--nav-height-sm);
+        }
+
+        header .inner .menu {
+            /* 그냥 menu라고 쓰면 꼬일수 있다.. 하위요소로 선택한게 더 우위라 왠만하면 그대로 쓰자 */
+            display: block;
+            text-align: center;
+            font-weight: 200;
+            background-color: aliceblue;
+        }
+
+        header .inner .menu .li {
+            /* 그냥 menu라고 쓰면 꼬일수 있다.. 하위요소로 선택한게 더 우위라 왠만하면 그대로 쓰자 */
+            padding : 0px; 
+        }
+
+        header .inner {
+            display: block;
+
+        }
+
+        header .inner .logo {
+        position: static; 
+        height: var(--nav-height-sm); /*=세로 100퍼랑 동일하게 작용*/
+        line-height: var(--nav-height-sm); /*인라인 요소 세로 가운데 정렬*/
+        text-align: center;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <div class="logo">
+          <i class="fa-solid fa-igloo"></i> 
+          <!-- 아이콘 만들어주는 기능 -->
+        </div>
+        <ul class="menu">
+          <li>메뉴1</li>
+          <li>메뉴2</li>
+          <li>메뉴3</li>
+          <li>메뉴4</li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

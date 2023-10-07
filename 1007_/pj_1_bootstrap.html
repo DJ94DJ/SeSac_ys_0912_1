@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+    <!-- j쿼리를 쓰는 스크립트가 있을 수도 있으니 이건 맨 위에 불러놓자 -->
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- fullPage.js 로드 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <style>
+        .container {
+            width: 80%;
+            height: 300px;
+            border: solid 2px;
+            margin: 40px;
+            display: inline-block;
+        }
+
+        .one {
+            background-color: gold;
+        }
+
+        .two {
+            background-color: red;
+        }
+
+        .three {
+            background-color: dodgerblue;
+        }
+
+        .four {
+            background-color: darkorchid;
+        }
+
+        .section {
+            text-align: center;
+
+        }
+
+        .secret{
+            display: none;
+            animation: secret 5s linear;
+        }
+
+        @keyframes secret {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+<!-- 부트스트랩을 끌어와서 사용해보자! -->
+
+<!-- <h>김선생의 비밀</h> -->
+
+<!-- <div class="section secret container two"></div> -->
+
+
+<div class="fullpage">
+    <div class="section">
+
+        <div class="animated fadeIn delay-1s">
+            <h1 class="animated infinite bounce delay-2s">김선생은 왜 맛있을까요?</h1> <br />
+            <div class=" container one"></div>
+        </div>
+
+    </div>
+    <div class="section">
+        <div class="animated fadeIn delay-1s">
+            <h1 class="animated infinite bounce delay-2s">김선생은 왜 비쌀까요?</h1> <br />
+            <div class="container two"></div>
+        </div>
+
+    </div>
+    <div class="section">
+        <div class="animated fadeIn delay-1s">
+            어쩌구 저쩌구.. <br />
+            <div class="container three"></div>
+        </div>
+
+    </div>
+    <div class="section">
+            궁금하시죠? <br />
+            <div><input type="button" value="알고 싶으신가요.." onclick="showAlertAndChart();" /><br/><br/></div>
+        <canvas id="bar-chart" width="300" height="230"></canvas>
+    </div>
+</div>
+
+
+<script>
+
+$(function() {
+    var page = $('.fullpage').fullpage({
+
+        // 1. 네비게이션 보이기
+        navigation : true,
+ 
+        // 2. 네비게이션 위치 지정
+        navigationPosition : 'right',
+ 
+        // 3. 각 섹션의 배경색상 지정 (6자의 핵사코드 작성가능)
+        sectionsColor : ['grey', 'pink', 'gold', "skyblue"],
+
+    });
+})
+
+
+
+function showAlert_1() {
+    swal("김밥은 원래 맛있어요", "당연한 소리지만", "success");
+}
+
+
+
+function showAlertAndChart() {
+    swal("김선생의 비밀이 궁금하시나요?", "그렇다면 알려드리지요.", "info");
+
+    new Chart(document.getElementById("bar-chart"), {
+  type: 'bar',
+  data: {
+    labels: ["단무지의 순수함","김의 고소함","암탉 스트레스 관리","참기름 불순물","아질산나트륨 첨가율"],
+    datasets: [{ 
+        data: [9,8,2,3,0],
+        label: "김선생",
+        backgroundColor: "lightpink",
+        borderColor: "red",
+        borderWidth: 4
+      },  { 
+        data: [5,4,7,6,8],
+        label: "김밥천국",
+        backgroundColor: "skyblue",
+        borderColor: "blue",
+        borderWidth: 4
+      }, { 
+        data: [7,7,4,8,2],
+        label: "고봉민 김밥",
+        backgroundColor: "yellow",
+        borderColor: "gold",
+        borderWidth: 4
+      }, 
+ 
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'World population per region (in millions)'
+    }
+  }
+});
+}
+
+
+
+</script>
+
+
+</body>
+</html>
