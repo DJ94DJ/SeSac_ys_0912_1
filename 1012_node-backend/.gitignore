@@ -1,0 +1,4 @@
+node_modules/
+# 해당 폴더를 다 무시한다는 뜻
+package-lock.json
+# 하나의 파일을 무시한다는 뜻

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div>상품1:운동화</div>
+    <div>상품2:후드</div>
+    <div>상품3:점퍼</div>
+    <div>상품4:목걸이</div>
+    <div>상품5:캠핑</div>
+    <div>상품6:가방</div>
+    <div>상품7:쪼리</div> -->
+
+<!-- <응=name 응>  -->
+<!-- <응=product 응>  -->
+
+<!-- <응=include(header.ejs) 응>  -->
+<!-- 변수이기에 싸줄필요 없다. 해당 값는 백엔드에서 옴 -->
+
+<!-- ejs 태그 안에 오는 자바스크립트 코드는 열리고 닫히는 게 한줄로 끝나야 함. -->
+    <% for(let i=0; i < product.length; i++) { %> <!-- div 다섯개 만듬. =는 출력할 때만 쓴다. -->
+    
+        <!--<응 for(let i=0; i < 5; i++) { 응> /오류코드 퍼센트 주석처리 안됨!!! -->
+
+        <!-- ejs 태그 안에 바로 = 이 오면 = 뒤에 있는 변수 값을 html로 노출시킨다. -->
+        <div>상품 <%=product[i] %></div>
+        <div>방귀 <%=name %></div>
+    <% } %>
+
+    <div><%="hello dj" %></div>
+        <!-- ejs 태그 안에 바로 - 이 오면 - 뒤에 있는 변수 값을 html로 노출시킨다.(html 태그를 노출) -->
+    <%="<div>안녕</div>" %>  
+    <%-"<div>안녕</div>" %> 
+    <!-- -, = 차이 확인 -->
+    
+<!-- <script>
+    let variables = "";
+</script> -->
+    <%-include("index.ejs") %> 
+    <!-- include = 다른 페이지 파일 끌어오기! -->
+    <!-- 터미널 할때 위로 올리면 이전 명령 끌어온다!! (실행할떄 편함) -->
+
+    
+</body>
+</html>
