@@ -32,11 +32,32 @@ const obj = {
     name: "dj",
     gender: "남",
     age: 30,
-}
+};
 
 //  key 이름 바꾸는 법
 const {age, name, gender, love = "love", name: name2 } = obj;
 console.log(age, love, name2);
+
+
+const obj3 = {
+    ...obj,
+    test: "test",
+};
+
+console.log("obj3는 다음과 같아요",obj3);
+
+const values = [10, 20, 30];
+function get(a, ...rest) {
+    console.log(a); //10
+    console.log("rest남은것들",rest); // [20,30]
+}
+
+get(...values);
+// ...[10,20.30] => 10, 20, 30
+// get(10, 20, 30);
+
+
+
 
 // 사실상 아래 코드와 동일작업
 // const age = obj.age;
@@ -66,6 +87,7 @@ const word1="abc";
 const word2="xyz";
 const word3 = [...word1,...word2];
 console.log("word3는 다음과 같아요", word3);
+
 
 
 
