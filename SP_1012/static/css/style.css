@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+/* vh : 화면기준으로 높이 근데 100%랑은 다르다 */
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+  /* vh : 화면기준으로 가로 */
+}
+
+.panel {
+  background-size: cover;
+  /* cover 요소를 모두 덮게 하는것 */
+  background-position: center;
+  background-repeat: no-repeat;
+    /* cover 요소내에서 바둑판 반복을 할지 묻는 것 */
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: e-resize;
+  flex: 0.5;
+  /* 나머지 판넬의 축소형 크기 (가로) */
+  margin: 10px;
+  position: relative;
+  -webkit-transition: all 700ms ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+  /* 메인 판넬의 축소형 크기 (가로) */
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 1.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+/* 이건 왜있는지 모르겠다 */
