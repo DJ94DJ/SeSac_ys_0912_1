@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 엑시오스 포스트 회원가입 페이지 실습</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <h1>Axios GET으로 정보받기</h1>
+    <form name="signup_axios_get"> 
+        이름 <input type="text" name="id" value="DJ" /> <br/>
+        패스워드 <input type="password", name="pw" placeholder="password" value="icancode"/>
+
+        <fieldset>
+        <legend>성별</legend>
+            <input type="radio" name="gender" value="male" id="male" /> <label for="male">남자</label>
+            <input type="radio" name="gender" value="female" id="woman" /> <label for="woman">여자</label>
+        </fieldset>
+
+        <fieldset>
+        <legend>생년월일</legend>
+        <select name="byear">
+            <% for(let i=2023; i>1900; i--){ %>
+                <option value="<%= i %>"> <%= i %> </option>
+            <% } %>
+        </select>
+        년
+
+        <select name="bmonth">
+            <% for(let i=1; i<=12; i++){ %>
+                <option value="<%= i %>"> <%= i %> </option>
+            <% } %>
+        </select>
+        월
+
+        
+        <select name="bdate">
+            <% for(let i=1; i<=31; i++){ %>
+                <option value="<%= i %>"> <%= i %> </option>
+            <% } %>
+        </select>
+        일
+        </fieldset>
+
+        <fieldset>
+        <legend>관심사</legend>
+            <input type="checkbox" name="interest" value="여행" id="trip" /> <label for="trip">여행</label>
+            <input type="checkbox" name="interest" value="패션" id="fashion"/> <label for="fashion">패션</label>
+            <input type="checkbox" name="interest" value="음식" id="food"/> <label for="food">음식</label>
+        </fieldset>
+    <br />
+        <div> 
+        <button type="button" onclick='axiosGet()'>회원가입</button>
+
+        </div> 
+    </form>
+    <h3 id="result"></h3> 
+
+
+    <h1>Axios POST으로 로그인 하기</h1>
+    <form name="login_axios_post"> 
+
+        <fieldset>
+            <legend>로그인</legend>
+            이름 <input type="text" name="id2" value="DJ" /> <br/>
+            패스워드 <input type="password", name="pw2" placeholder="password" value="icancode"/>
+        </fieldset> <br/>
+        
+        <div>        
+            <button type="button" onclick='axiosPost()'>로그인 (axios Post 전송하기)</button>
+        </div>
+    </form>
+    <h3 id="result2"></h3> 
+
+    <script>
+
+        function getData() {
+        const form = document.forms["signup_axios_get"];
+
+        // 일부 정보 통합하기 (생일, 관심사)
+            const interests = Array.from(form.elements['interest'])
+             .filter(checkbox => checkbox.checked)
+               .map(checkbox => checkbox.value);
+            
+            const bday = `${form.byear.value}-${form.bmonth.value}-${form.bdate.value}`;
+
+        // 정보 정리하기
+        const data = {
+          id: form.id.value,
+          pw: form.pw.value,
+          gender: form.gender.value,
+          bday: bday,
+          interest: interests,
+
+        }
+
+        return data;
+      }
+        function axiosGet() {
+        const data = getData();
+
+        axios({
+          method: "GET",
+          url: "/axios",
+          params: data // get 요청으로 데이터 보낼 때 params 사용
+          // params 대신 url에 query를 직접 작성해도 됨
+        }).then((res) => {
+          // 서버에서 보내준 응답이 res에 담김
+          console.log("res", res)
+          console.log("res.data", res.data)
+          const {
+            id,
+            pw,
+            gender,
+            bdayyear,
+            bdaymonth,
+            bdaydate,
+            interest1,
+            interest2,
+            interest3,
+          } = res.data
+
+          $("#result").html(`회원가입이 성공했습니다. ${res.data.id}님 환영합니다. 😍(axios get으로 전달)`)
+        })
+      }
+
+
+        function getData2() {
+        const form = document.forms["login_axios_post"];
+
+        // 정보 정리하기
+        const data = {
+          id2: form.id2.value,
+          pw2: form.pw2.value,
+        }
+
+        return data;
+      }
+        async function axiosPost(){
+
+            const data = getData2();
+            const res = await axios ({
+                method: "POST",
+                url: "/axios",
+                data: data,
+            })
+
+            console.log("res", res)
+            console.log("res.data", res.data)
+
+            // 로그인 성공/실패에 따른 메시지 색상 변경
+            let colchange = res.data.success ? 'blue' : 'red';
+
+            // 해당 자리의 css를 변경하고, 리스폰스에 입력된 메시지를 띄움
+            $("#result2").css('color', colchange).html(res.data.msg);
+
+
+        }
+
+    </script>
+
+
+</body>
+</html>
+
+<!-- 
+    궁금한 거 더 물어볼게 let colchange = res.data.success ? 'blue' : 'red'; 나  
+    msg: success ? "로그인 성공! 환영합니다." : "로그인 실패! 아이디나 비밀번호를 확인하세요.", 
+    에서 ?(물음표) 기호가 들어가는 이유는 왜 때문이야?
+    
+    
+    
+    `?` 기호는 JavaScript에서 조건(삼항) 연산자를 나타냅니다. 
+이 연산자는 세 개의 피연산자를 취하며, 이 때문에 "삼항"이라는 이름이 붙었습니다. 그 형식은 다음과 같습니다:
+
+```javascript
+condition ? value_if_true : value_if_false
+```
+
+이 구조에서 `condition`은 평가될 불리언 표현식입니다. 
+만약 `condition`이 `true`로 평가되면, 삼항 연산자 전체는 `value_if_true` 값으로 평가됩니다. 
+반대로 `condition`이 `false`로 평가되면, 삼항 연산자 전체는 `value_if_false` 값으로 평가됩니다.
+
+따라서 위 코드에서
+
+```javascript
+let colchange = res.data.success ? 'blue' : 'red';
+```
+
+위 구문은 만약 로그인 성공(`res.data.success === true`)하였다면 'blue' 값을 반환하고, 
+그렇지 않다면('red') 값을 반환합니다.
+
+마찬가지로,
+
+```javascript
+msg: success ? "로그인 성공! 환영합니다." : "로그인 실패! 아이디나 비밀번호를 확인하세요."
+```
+
+위 구문은 로그인에 성공했다면 `"로그인 성공! 환영합니다."` 문자열을 반환하고, 
+그렇지 않으면 `"로그인 실패! 아이디나 비밀번호를 확인하세요."` 문자열을 반환합니다.
+
+조건(삼항) 연산자는 간결한 if-else 문을 작성하는 데 유용한 도구입니다. -->
