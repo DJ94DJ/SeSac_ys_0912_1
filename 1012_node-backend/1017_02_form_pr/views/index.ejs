@@ -69,11 +69,17 @@
 
     <form action="/post/ver2" method="post" target="_blank" name="signup_post"> 
         <div class="error" id = "err-id"></div>
-        아이디 <input type="text" name="id" pattern="^([a-z0-9]){5,}$" title="소문자, 숫자 조합해 5자 이상" oninput="vaildCheckId(this)" required /> 
+        아이디 <input type="text" name="id" pattern="^([a-z0-9]){5,}$" 
+        title="소문자, 숫자 조합해 5자 이상" oninput="vaildCheckId(this)" required /> 
+       
         <div class="error" id = "err-pw"></div>
-        비밀번호 <input type="password" name="pw" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[`~!@#$%^&*()-_=+\|[\]{}<>/?])[A-Za-z\d`~!@#$%^&*()-_=+\|[\]{}<>/?]{8}$" title="비밀번호는 영어 소문자, 대문자, 숫자, 특수 문자를 모두 한 번 이상은 사용 8글자 이상" oninput="vaildCheckPw(this)" required /> 
+        비밀번호 <input type="password" name="pw" 
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[`~!@#$%^&*()-_=+\|[\]{}<>/?])[A-Za-z\d`~!@#$%^&*()-_=+\|[\]{}<>/?]{8}$" 
+        title="비밀번호는 영어 소문자, 대문자, 숫자, 특수 문자를 모두 한 번 이상은 사용 8글자 이상" oninput="vaildCheckPw(this)" required /> 
+      
         <div class="error" id = "err-phone"></div>
-        전화번호 <input type="text" name="phone" pattern="^010-?([0-9]{4})-?([0-9]{4})$" title="전화번호는 010-0000-0000 형식으로 입력해주세요. " oninput="vaildCheckPhone(this)" required /> 
+        전화번호 <input type="text" name="phone" pattern="^010-?([0-9]{4})-?([0-9]{4})$" 
+        title="전화번호는 010-0000-0000 형식으로 입력해주세요. " oninput="vaildCheckPhone(this)" required /> 
         이름 <input type="text" name="name" required /> 
 
         <fieldset>

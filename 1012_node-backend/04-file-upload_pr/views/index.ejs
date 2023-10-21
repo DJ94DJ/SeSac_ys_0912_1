@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 업로드 실습</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        #axiosGet-result {
+            width: 410px;
+            height: 410px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            
+        }
+
+        .greeting {
+            width: 400px;
+            height: 400px;
+            background-color: chartreuse;
+            border-radius: 20px;
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>파일 업로드 실습 (multer storage를 이용한 설정) & 동기 폼 Axios 업로드 </h1>
+
+    <!--비동기 업로드 (실습1) <form action="/upload" method="post" enctype="multipart/form-data"> -->
+
+    <form name= "axiosPostUpload">
+    <input type="text" name="userid" placeholder="아이디" value="DJ"/><br />
+    <input type="password" name="pw" placeholder="비밀번호" value="1234"/><br />
+    <input type="text" name="name" placeholder="이름" value="이도준"/><br />
+    <input type="number" name="age" placeholder="나이" value="30" /><br />
+    <input type="file" name="userfile" ><br /><br />
+    <button type="submit">회원가입</button>
+    <button type="button" onclick='axiosPost()'>회원가입 (axios 동적 폼 전송)</button>
+    </form>
+
+    <!-- 결과값 -->
+    <br /><div id="axiosGet-result"></div>
+
+
+
+<h1>동적 폼 전송(axios)을 이용한 파일 업로드</h1> 
+    <form name= "dynamic-upload"> 
+        <input type="file" name= "userfile" /> 
+        <br /> 
+        <input type="text" name="title" /> 
+        <br /> 
+        <button type="button" onclick= dynamicUpload()>업로드</button> 
+    </form>
+    <div id="dynamic-upload-result"></div>
+
+
+    <script>
+        function axiosPost() {
+            const form = document.forms["axiosPostUpload"];
+
+            const formData = new FormData();
+            //FormData객체의 append 메소드는 데이터를 추가할 때 사용
+            //formData.append("title", form.title.value);
+
+            // 그래서.. 동적폼이 파일 받는법
+            console.log("files", form.userfile.files);
+            formData.append("userfile", form.userfile.files[0])
+
+            //내용 받기
+            formData.append("userid", form.userid.value);
+            formData.append("pw", form.pw.value);
+            formData.append("name", form.name.value);
+            formData.append("age", form.age.value);
+
+
+            axios ({
+            method: "post",
+            url: "upload/post",
+            data : formData,
+            headers : {
+                "Content-type": "multipart/form-data"
+            }
+            }).then((res)=>{
+                console.log(res.data)
+                const result = document.getElementById("axiosGet-result")
+                    result.innerHTML = `
+                    <div class="greeting"><br/><br/>
+                    <img src="${res.data.src}" width="150"/><br/>
+                    <h1>${res.data.userid}님 환영합니다!<h1>
+                    <h4>비밀번호: ${res.data.pw}<br/>
+                    이름: ${res.data.name}<br/>
+                    나이:${res.data.age}<h4>
+                    </div>
+                    `;
+            })
+        }
+
+
+        //강의 내용
+        function dynamicUpload() {
+            const form = document.forms["dynamic-upload"];
+
+            const formData = new FormData();
+            //FormData객체의 append 메소드는 데이터를 추가할 때 사용
+            formData.append("title", form.title.value);
+
+            // type이 file인 input태그 선택해서 files 접근 해보면
+            //이거로는 처리할 수 없다!
+            console.log("value", form.userfile.value);
+            // 그래서.. 동적폼이 파일 받는법
+            console.log("files", form.userfile.files);
+
+            formData.append("userfile", form.userfile.files[0])
+            //아래 방식은 이미지 데이터를 정상적으로 처리불가
+            //const data {title: form.title.value, userfile: form.userfile.value}
+
+
+            //동적 폼 전송..
+            axios ({
+            method: "post",
+            url: "upload/dynamic",
+            data : formData,
+            headers : {
+                "Content-type": "multipart/form-data"
+            }
+            }).then((res)=>{
+                console.log(res.data)
+                const result = document.getElementById("dynamic-upload-result")
+                    result.innerHTML = `<img src="${res.data.src}" width="150"/>`
+            })
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

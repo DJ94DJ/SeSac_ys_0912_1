@@ -72,6 +72,7 @@
         
         <div>        
             <button type="button" onclick='axiosPost()'>로그인 (axios Post 전송하기)</button>
+            <!-- 버튼 타입은 무조건 버튼! 기본값이면 서브밑이 된다. -->
         </div>
     </form>
     <h3 id="result2"></h3> 
@@ -79,7 +80,21 @@
     <script>
 
         function getData() {
+        // document.forms = {
+        //     register: <form></form>,
+        //     login: <form></form>,
+        // }
         const form = document.forms["signup_axios_get"];
+
+        // console.log("gender" , form.gender);
+        // console.log("interest" , form.interest);
+
+        // for (let input of form.interest) {
+        //     //input type이 라디오이거나 checkbox인 경우 input의 속성으로 checked로 존재
+        //     if (input.checked) interests.push(input.value)
+        // }
+
+        // console.log(interests)
 
         // 일부 정보 통합하기 (생일, 관심사)
             const interests = Array.from(form.elements['interest'])
@@ -100,6 +115,8 @@
 
         return data;
       }
+
+      //클릭할때 나오는 기능 구현
         function axiosGet() {
         const data = getData();
 
@@ -119,9 +136,7 @@
             bdayyear,
             bdaymonth,
             bdaydate,
-            interest1,
-            interest2,
-            interest3,
+            interest,
           } = res.data
 
           $("#result").html(`회원가입이 성공했습니다. ${res.data.id}님 환영합니다. 😍(axios get으로 전달)`)

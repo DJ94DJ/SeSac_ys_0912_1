@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 업로드</title>
+</head>
+<body>
+
+
+    <!-- 일반 폼 전송 이용해 파일 업로드하기 -->
+    <!-- enctype : application/x-www-form-unlendoded (기본값)--> 
+    <!-- fetch를 이용한 동적 폼 전송의 content-type 지정 -->
+    <!-- 파일 전송하려면 enctype을 multipart/form-data로 변경해야함. -->
+
+<h1>가장 기본적인 설정</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="userfile" /><br />
+    <input type="text" name="title" /><br /><br />
+    <button type="submit">업로드</button>
+    </form>
+
+<h1>multer storage를 이용한 설정</h1>
+    <form action="/upload/detail" method="post" enctype="multipart/form-data">
+    <input type="file" name="userfile" /><br />
+    <input type="text" name="title" /><br /><br />
+    <button type="submit">업로드</button>
+    </form>
+
+<h1>파일 여러개 업로드 (하나의 인풋 이용)</h1>
+    <form action="/upload/array" method="post" enctype="multipart/form-data">
+    <!-- input 타입 파일의 멀티플 속성 부여 > 여러 파일 선택할 수 있게함. -->
+    <input type="file" name="userfile" multiple /><br />
+    <input type="text" name="title" /><br /><br />
+    <button type="submit">업로드</button>
+    </form>
+
+<h1>파일 여러개 업로드 (여러개의 인풋 이용)</h1>
+    <form action="/upload/fields" method="post" enctype="multipart/form-data">
+    
+    <input type="file" name="userfile1" /><br />
+    <input type="text" name="title1" /><br /><br />
+
+    <input type="file" name="userfile2" /><br />
+    <input type="text" name="title2" /><br /><br />
+
+    <button type="submit">업로드</button>
+    </form>
+
+</body>
+</html>
