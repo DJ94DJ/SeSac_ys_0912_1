@@ -259,3 +259,162 @@ select customer.addr, orders.* from customer inner join orders on customer.custi
 
 -- 이름으로 합친다면?
 select customer.custname, orders.* from customer inner join orders on customer.custid = orders.custid;
+
+--------
+
+Microsoft Windows [Version 10.0.22621.2428]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ***********
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.34 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> quit
+Bye
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.34 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases
+    -> show databases
+    -> show databases
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'show databases
+show databases
+show databases' at line 2
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> CREATE DATABASE db name
+    -> ^Z
+Bye
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.34 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE sesac_test DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sesac_test         |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use sesac_test;
+Database changed
+mysql> show tables;
++----------------------+
+| Tables_in_sesac_test |
++----------------------+
+| member               |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> desc member;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | varchar(20)  | NO   | PRI | NULL    |       |
+| name      | varchar(50)  | NO   |     | NULL    |       |
+| age       | int unsigned | YES  |     | NULL    |       |
+| gender    | varchar(2)   | NO   |     | NULL    |       |
+| email     | varchar(20)  | YES  |     | NULL    |       |
+| promotion | varchar(2)   | YES  |     | x       |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc member;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | varchar(10)  | NO   | PRI | NULL    |       |
+| name      | varchar(5)   | NO   |     | NULL    |       |
+| gender    | varchar(2)   | NO   |     | NULL    |       |
+| email     | varchar(50)  | NO   |     | NULL    |       |
+| promotion | varchar(2)   | YES  |     | x       |       |
+| interest  | varchar(100) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc member;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | varchar(10)  | NO   | PRI | NULL    |       |
+| name      | varchar(5)   | NO   |     | NULL    |       |
+| gender    | varchar(2)   | NO   |     | NULL    |       |
+| email     | varchar(50)  | YES  |     | NULL    |       |
+| promotion | varchar(2)   | YES  |     | x       |       |
+| interest  | varchar(100) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc user;
++----------+------------------+------+-----+---------+-------+
+| Field    | Type             | Null | Key | Default | Extra |
++----------+------------------+------+-----+---------+-------+
+| id       | varchar(10)      | NO   | PRI | NULL    |       |
+| pw       | varchar(20)      | NO   |     | NULL    |       |
+| name     | varchar(5)       | NO   |     | NULL    |       |
+| gender   | enum('F','M','') | YES  |     |         |       |
+| birthday | date             | NO   |     | NULL    |       |
+| age      | int              | NO   |     | 0       |       |
++----------+------------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql>
