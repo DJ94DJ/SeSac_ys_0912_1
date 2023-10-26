@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 업로드 실습 결과</title>
+
+    <style>
+
+        .container {
+            width : 600px;
+            height: 600px;
+            background-color: blue;
+            border-radius : 20px;
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        
+        /* 기타 스타일링 */
+        h4 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+    <img src ="/<%=src%>" class="uploaded-image"/>
+    <h4> <%=userid%> 님 환영합니다! </h4>
+    </div>
+
+</body>
+</html>

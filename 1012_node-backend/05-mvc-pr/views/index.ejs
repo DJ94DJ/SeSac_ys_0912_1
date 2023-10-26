@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 업로드 실습</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        #axiosGet-result {
+            width: 410px;
+            height: 410px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            
+        }
+
+        .greeting {
+            width: 400px;
+            height: 400px;
+            background-color: chartreuse;
+            border-radius: 20px;
+
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>MVC 실습 - Axios post 로그인 </h1>
+
+
+    <form name= "axiosPostUpload">
+    <input type="text" name="userid" placeholder="아이디" value="DJ"/><br />
+    <input type="password" name="pw" placeholder="비밀번호" value="1234"/><br />
+    <button type="button" onclick='axiosPost()'>로그인 (axios post)</button>
+    </form>
+
+    <!-- 결과값 -->
+    <br /><div id="axiosGet-result"></div>
+
+
+
+
+    <script>
+        function axiosPost() {
+            const form = document.forms["axiosPostUpload"];
+
+            const formData = new FormData();
+          
+            formData.append("userid", form.userid.value);
+            formData.append("pw", form.pw.value);
+    
+            axios ({
+                method: "post",
+                url: "/user/upload/post",
+                data : formData,
+                headers : {
+                "Content-type": "multipart/form-data"
+                }
+            }).then((res)=>{
+                console.log(res.data)
+                const result = document.getElementById("axiosGet-result")
+                    result.innerHTML = `
+                    <div class="greeting"><br/><br/>
+                    
+                    <h1>${res.data.userid}님 환영합니다!<h1>
+                    
+                    </div>
+                    `
+            })
+        }
+
+    </script>
+
+
+</body>
+</html>
