@@ -1,3 +1,5 @@
+//mysql로 정리한 것
+
 const Visitor = require("../model/Visitor_mysql");
 
 exports.home = (req, res) => {
