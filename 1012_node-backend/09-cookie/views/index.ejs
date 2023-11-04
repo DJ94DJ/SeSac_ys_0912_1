@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    }
+
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    }
+    </style>
+
+</head>
+<body>
+
+<button id="openModal">그만보기</button>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>그만보기 창</h2>
+    <p>더 이상 이 창을 보고 싶지 않으시면 확인 버튼을 클릭해주세요.</p>
+    <button id="confirm">확인</button>
+  </div>
+</div>
+
+<script>
+
+console.log(document.cookie);
+
+const openModalBtn = document.getElementById('openModal');
+const modal = document.getElementById('modal');
+const closeModalBtn = document.getElementsByClassName('close')[0];
+const confirmBtn = document.getElementById('confirm');
+
+    //모달 창 자동으로 뜨게하고 만약 쿠기가 있다면 못 뜨게 하기
+window.addEventListener('load', function() {
+  const popupClosed = getCookie('popupClosed');
+  if (!popupClosed) {
+    modal.style.display = 'block';
+  }
+});
+//해당 코드는 페이지가 로드될 때 실행되는 이벤트 리스너입니다. 이 코드의 주요 동작은 다음과 같습니다:
+// 1. window.addEventListener('load', function() { ... }): 페이지가 로드될 때 발생하는 "load" 이벤트를 감지하는 이벤트 리스너를 등록합니다.
+// 2. getCookie('popupClosed'): getCookie 함수를 호출하여 "popupClosed"라는 이름의 쿠키 값을 가져옵니다.
+// 3. if (!popupClosed) { ... }: 가져온 쿠키 값이 존재하지 않는 경우, 즉 "popupClosed" 쿠키가 설정되어 있지 않은 경우에는 아래의 코드 블록을 실행합니다.
+// 4. modal.style.display = 'block';: "modal" 요소의 display 속성을 "block"으로 설정하여 모달이 화면에 표시되도록 합니다.
+// 즉, 페이지가 로드될 때 "popupClosed" 쿠키가 설정되어 있지 않은 경우에만 모달이 화면에 표시됩니다. 이를 통해 사용자에게 모달 창을 보여주는 조건을 설정할 수 있습니다.
+
+    //쿠키 확인하기
+    function getCookie(cookieName) {
+  const cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i].trim();
+    const [name, value] = cookie.split('=');
+    if (name === cookieName) {
+      return name;
+    }
+  }
+  return null;
+};
+
+    
+
+
+//버튼 누르면 모달 창 뜨게하기
+openModalBtn.addEventListener('click', function() {
+modal.style.display = 'block';
+});
+
+
+//버튼 누르면 모달창 닫기
+closeModalBtn.addEventListener('click', function() {
+modal.style.display = 'none';
+});
+
+//앞으로 안보기 누르면 작동하는 기능 (닫고, 쿠기 설정하기)
+confirmBtn.addEventListener('click', function() {
+    modal.style.display = 'none';
+
+    // 모달 창을 숨기는 동작을 추가합니다.
+    fetch('/set')
+    .then(response => response.text())
+    .then(data => {
+    console.log(data); // "set cookie" 메시지가 출력됩니다.
+    })
+    .catch(error => {
+    console.error(error);
+    });
+});
+   
+    
+</script>
+</body>
+</html>

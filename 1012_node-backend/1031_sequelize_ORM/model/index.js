@@ -1,3 +1,5 @@
+//시퀄라이즈를 정의한 것
+
 const Sequelize = require("sequelize");
 
 Sequelize.TEXT()
@@ -30,7 +32,6 @@ db.Visitor = require("./Visitor")(sequelize, Sequelize);
 
 //서비스가 커진다면..
 //db.User = require("./User")(sequelize, Sequelize);
-
 db.User = require("./User_S")(sequelize, Sequelize);
 
 module.exports = db;

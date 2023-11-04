@@ -1,3 +1,5 @@
+//시퀄라이저로 정리하는것
+
 const { Visitor }= require("../model") // 모델 /index.js 부르겠단뜻
 
 
@@ -7,6 +9,7 @@ exports.home = (req, res) => {
 
 // GET /visitors => 기존 방명록 전체 조회후 렌더 (render("visitor"))
 exports.visitor = (req, res) => {
+    
     //select * from visitor; >>> 전체조회
     Visitor.findAll()
     .then((result)=>{
