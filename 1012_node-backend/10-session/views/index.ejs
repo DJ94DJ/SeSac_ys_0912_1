@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Document</title>
+    <style>
+      .container {
+        position: fixed;
+        top: 100px;
+        left: 40px;
+      }
+
+      #topMenu {
+        position: fixed;
+        top: 0;
+        left: -30px;
+        height: 30px;
+        width: 1000px;
+      }
+
+      #topMenu ul li {
+        list-style: none;
+        color: white;
+        background-color: #2d2d2d;
+        float: left;
+        line-height: 30px;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      #topMenu .menuLink {
+        text-decoration: none;
+        color: white;
+        display: block;
+        width: 150px;
+        font-size: 12px;
+        font-weight: bold;
+        font-family: "Trebuchet MS"
+      }
+
+      #topMenu .menuLink:hover {
+        color: red;
+        background-color: #4d4d4d;
+      }
+
+      #topMenu .LogLink {
+        text-decoration: none;
+        color: lightblue;
+        display: block;
+        width: 120px;
+        font-size: 8px;
+        font-weight: bold;
+        font-family: "Trebuchet MS"
+      }
+
+      #topMenu .LogLink:hover {
+        color: yellow;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <nav id="topMenu">
+      <ul>
+        <li><a class="menuLink" href="#">코딩온</a></li>
+        <li><a class="menuLink" href="#">About us</a></li>
+        <li><a class="menuLink" href="#">Ministries</a></li>
+        <li><a class="menuLink" href="#">Community</a></li>
+
+        <!-- 비로그인 상태에만 띄우기 클릭시 세션 생성 및 Axios로 전달, 확인 후 로그인 상태로 전환 -->
+        <% if (!user) { %>
+        <li><a class="LogLink" href="#" onclick="login()">LOGIN (lily 회원 로그인)</a></li>
+        <li><a class="LogLink" href="#" onclick="login2()">LOGIN (DJ 회원 로그인)</a></li>
+        <% } %>
+
+        <!-- 로그인 상태에만 띄우기, 클릭시 회원정보 세션 삭제및 Axios로 전달, 비로그인 상태로 전환-->
+        <% if (user) { %>
+        <li><a class="LogLink" href="#" onclick="logout()">LOGOUT</a></li>
+        <% } %>
+      </ul>
+    </nav><br />
+
+    <div class="container">
+      <div>여기는 Home 입니다!</div>
+
+      <!-- 로그인 상태에만 띄우기, ???에 회원의 이름 넣기 -->
+      <!-- <div>로그인 상태 : ??? 회원님 환영합니다.</div> -->
+      <% if (user) { %>
+      <div>로그인 상태: 😍 <%= user %> 회원님 환영합니다~!</div>
+      <% } %>
+
+      <!-- 비로그인 상태에만 띄우기 -->
+      <!-- <div>비로그인 상태 : 로그인을 진행해주세요.</div> -->
+      <% if (!user) { %>
+      <div> 😓 비로그인 상태: 로그인이 되지 않았습니다. 로그인을 버튼을 눌러서 진행해주세요.</div>
+      <% } %>
+
+    </div>
+
+    <script>
+      function login() {
+        axios.get("/set") // 서버에 GET 요청 보내기
+          .then(response => {
+            console.log(response.data); // 서버 응답 확인
+            location.reload(); // 페이지 새로고침
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
+
+      function login2() {
+        axios.get("/set2") // 서버에 GET 요청 보내기
+          .then(response => {
+            console.log(response.data); // 서버 응답 확인
+            location.reload(); // 페이지 새로고침
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
+
+      function logout() {
+        axios.get("/logout") // 서버에 GET 요청 보내기
+          .then(response => {
+            console.log(response.data); // 서버 응답 확인
+            location.reload(); // 페이지 새로고침
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
+    </script>
+
+
+
+  </body>
+</html>
