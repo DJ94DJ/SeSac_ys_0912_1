@@ -1,6 +1,7 @@
 const express = require("express");
 const userRouter = express.Router();
-const userController = require("../controller/Cuser_mysql")
+// const userController = require("../controller/Cuser_mysql")
+const userController = require("../controller/Cuser")
 
 userRouter.get("/", userController.home);
 
