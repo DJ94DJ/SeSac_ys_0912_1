@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 app.get("/set", (req, res) => {
   console.log("1:", req.session);
 
-  app.get("/get", (req, res) => {
+  app.get("/get"0, (req, res) => {
     console.log(1);
   }); // 로그인 성공한 시점에 req.session.user 에 고유한 값
 
