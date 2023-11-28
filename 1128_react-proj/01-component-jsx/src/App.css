@@ -1,0 +1,25 @@
+/* BEM 네이밍 규칙 */
+/* 블록, 엘리먼츠, 메소드의 앞자를 딴 방식 */
+/* .FuncComponent__test-css--active {} */
+
+.test-css {
+  background-color: yellow;
+  font-size: 30px;
+}
+
+.form-css {
+  text-align: center;
+}
+
+.title-css {
+  background-color: rgb(255, 229, 180);
+  text-align: center;
+  color: orange;
+  font-size: 30px;
+}
+
+.box-css {
+  width: 500px;
+  height: 150px;
+  background-color: rgb(255, 255, 207);
+}
