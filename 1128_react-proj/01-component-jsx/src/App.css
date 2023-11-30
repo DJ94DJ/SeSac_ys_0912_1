@@ -23,3 +23,34 @@
   height: 150px;
   background-color: rgb(255, 255, 207);
 }
+
+.Section___section {
+  margin-bottom: 20px;
+  border: 2px solid blue;
+}
+
+.Section___title {
+  color: red;
+}
+
+.FuncPropPj2___book {
+  background-color: lightyellow;
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.FuncPropPj2___bestseller {
+  color: salmon;
+}
+
+.FuncPropPj2___content {
+  text-align: left;
+}
+
+.FuncPropPj2___bookimg {
+  width: 120px;
+  object-fit: cover;
+}
