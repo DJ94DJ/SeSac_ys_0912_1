@@ -59,8 +59,18 @@ function FuncComponentPj() {
           <input type="password" id="pwd" name="pwd" />
         </form>
       </div>
+      {/* <div>props 실습 4</div>
+      <div>좋아하는 음식은 {food}</div> */}
     </>
   );
 }
+
+// FuncComponentPj.defaultProps = {
+//   food: "마롱글라세",
+// };
+
+// FuncComponentPj.propTypes = {
+//   food: PropTypes.string,
+// };
 
 export default FuncComponentPj;
