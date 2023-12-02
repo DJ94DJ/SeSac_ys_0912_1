@@ -9,6 +9,7 @@ import HandlerEx from "./components/ex/Pj03_HanderEx";
 import EventHandling from "./components/ex/Pj04_EventHandling_";
 import EventHandling2 from "./components/ex/Pj05_EventHandling2";
 import EventHandling3 from "./components/ex/Pj06_EventHandling3";
+// import Practice4 from "./components/1202_";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <EventHandling />
       <EventHandling2 />
       <EventHandling3 />
+      {/* <Practice4 /> */}
     </div>
   );
 }
