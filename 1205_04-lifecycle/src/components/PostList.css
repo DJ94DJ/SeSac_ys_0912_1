@@ -1,0 +1,39 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.postBoxhead {
+  color: white;
+  text-shadow: 3px 3px 4px rgb(0, 0, 0, 0.2);
+  width: 100%;
+  padding: 0.2% 0% 0.2% 0%;
+  margin-bottom: 5%;
+  background-color: dodgerblue;
+  text-align: center;
+  position: sticky;
+  top: 0px;
+}
+
+.postBox {
+  width: 60%;
+  height: 10%;
+  padding: 1% 5% 3% 5%;
+  border-radius: 20px;
+  box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.2);
+  margin: 2%;
+  background-color: aliceblue;
+}
+
+.numberId {
+  color: dodgerblue;
+}
+
+.postTitle {
+  color: gray;
+}
+
+.postContent {
+  font-weight: bold;
+}
