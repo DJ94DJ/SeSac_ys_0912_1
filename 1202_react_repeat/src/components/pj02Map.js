@@ -14,9 +14,12 @@ function ListWrite() {
   const [newName, setNewName] = useState("");
 
   const [searchResult, setSearchResult] = useState([]);
-  const [searchType, setSearchType] = useState("name");
+  // const [searchType, setSearchType] = useState("name");
+
   const [searchWord, setSearchWord] = useState("");
-  const [searchClicked, setSearchClicked] = useState(false);
+
+  // const [searchClicked, setSearchClicked] = useState(false);
+  const [searchType, setSearchType] = useState("writer");
 
   const addWrite = () => {
     const newObj = {
@@ -29,30 +32,49 @@ function ListWrite() {
     setList(newList);
     setNewName("");
     setNewtitle("");
-
-    // setSearchResult(newList); // 검색 결과도 업데이트
+    setSearchResult(newList); // 검색 결과도 업데이트
   };
 
   const deleteWrite = (id) => {
     const newList = List.filter((value) => value.id !== id);
     setList(newList);
-    // setSearchResult(newList); // 검색 결과도 업데이트
+    setSearchResult(newList); // 검색 결과도 업데이트
   };
 
-  const doSearch = () => {
-    if (!searchWord) {
-      setSearchResult(List);
-      return;
-    }
+  // 검색기능
+  // const doSearch = () => {
+  //   if (!searchWord) {
+  //     setSearchResult(List);
+  //     return;
+  //   }
 
-    const result = List.filter((item) =>
-      String(item[searchType]).toLowerCase().includes(searchWord.toLowerCase())
-    );
-    setSearchResult(result);
+  //   const result = List.filter((item) =>
+  //     String(item[searchType]).toLowerCase().includes(searchWord.toLowerCase())
+  //   );
+  //   setSearchResult(result);
 
-    if (result.length > 0) {
-      setSearchClicked(true); // 검색 버튼 클릭시 검색 결과 보이기
-    }
+  //   if (result.length > 0) {
+  //     setSearchClicked(true); // 검색 버튼 클릭시 검색 결과 보이기
+  //   }
+  // };
+
+  const searchComment = () => {
+    let searchResult = List.filter((item) => {
+      // console.log(item); // comment에 대한 각 원소(객체)
+      // console.log(item[searchType]); // 검색 조건(key)에 대한 value 값
+      // console.log(item[searchType].includes(search)); // true or false
+
+      // 검색결과 없음; null 반환
+      if (!item[searchType].includes(searchWord)) {
+        return false; // 검색어가 포함되지 않은 경우 false를 반환
+      }
+      return true; // 검색어가 포함된 경우 true를 반환
+    });
+
+    // 검색 결과 state 설정
+
+    setSearchResult(searchResult);
+    setSearchWord("");
   };
 
   return (
@@ -136,10 +158,13 @@ function ListWrite() {
           value={searchWord}
           onChange={(e) => {
             setSearchWord(e.target.value);
-            setSearchClicked(false);
+            // setSearchClicked(false);
           }}
         />
-        <button style={{ flexBasis: 50, margin: "10px" }} onClick={doSearch}>
+        <button
+          style={{ flexBasis: 50, margin: "10px" }}
+          onClick={searchComment}
+        >
           검색
         </button>
       </div>
@@ -199,7 +224,7 @@ function ListWrite() {
         })}
       </table>
 
-      {searchWord.length > 0 && (
+      {searchResult.length > 0 && (
         <table
           style={{
             width: "66%",

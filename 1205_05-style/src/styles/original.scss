@@ -1,0 +1,89 @@
+// :root {--color-main : red}
+
+// div {
+//     color: var(--color-main);
+//     width: calc(100vw-100px);
+// }
+
+//함수를 쓸수 있다.
+$color-main: red;
+
+// 코드블록을 한번더 묶어주는 기능
+@mixin box-width($size) {
+  width: $size;
+  height: $size;
+}
+
+// 사용할 때는 인클루드 이용
+.box1 {
+  @include box-width(100px);
+  background-color: bisque;
+}
+
+.box2 {
+  @include box-width(200px);
+  background-color: rgb(129, 85, 31);
+}
+
+.scss-parents {
+  color: $color-main;
+  background-color: rgba(0, 255, 255, 0.635);
+  // width: 100vw - 20;
+}
+
+.scss-parents {
+  ul {
+    background-color: black;
+    color: white;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  @extend .btn;
+  background-color: gold;
+}
+
+.origin-sass {
+  display: flex;
+  .box {
+    @include box-width(80px);
+
+    &.red {
+      background-color: red;
+    }
+    &.orange {
+      background-color: orange;
+    }
+    &.yellow {
+      background-color: yellow;
+    }
+    &.green {
+      background-color: green;
+    }
+    &.blue {
+      background-color: blue;
+    }
+    &.purple {
+      background-color: purple;
+    }
+    &.cream {
+      background-color: floralwhite;
+    }
+    &.lightblue {
+      background-color: lightblue;
+    }
+    &.pink {
+      background-color: pink;
+    }
+  }
+}
