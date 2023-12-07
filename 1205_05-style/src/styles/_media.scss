@@ -1,0 +1,6 @@
+// 언더바를 파일에 넣었을 경우 암묵적으로 scss에서 호출시키는 파일을 지칭
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}

@@ -1,0 +1,68 @@
+$col-1st: pink;
+$col-2st: gold;
+$col-3st: limegreen;
+
+@mixin circle-maker($size, $col, $num) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $col;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.1);
+}
+
+@mixin ani-title($num) {
+  animation: move-ani-#{$num} 4s infinite ease-in-out;
+}
+
+@mixin movin($distance, $stop, $num) {
+  @keyframes move-ani-#{$num} {
+    0% {
+      top: $stop;
+      left: $stop;
+    }
+    25% {
+      top: $distance;
+      left: $stop;
+    }
+    50% {
+      top: $distance;
+      left: $distance;
+    }
+    75% {
+      top: $stop;
+      left: $distance;
+    }
+    100% {
+      top: $stop;
+      left: $stop;
+    }
+  }
+}
+
+.ani-box {
+  position: relative;
+  height: 500px;
+  margin: 20px;
+
+  .dot {
+    position: absolute;
+
+    &.d1 {
+      @include circle-maker(40px, $col-1st, 1);
+      @include ani-title(1);
+    }
+
+    &.d2 {
+      @include circle-maker(40px, $col-2st, 2);
+      @include ani-title(2);
+    }
+
+    &.d3 {
+      @include circle-maker(40px, $col-3st, 3);
+      @include ani-title(3);
+    }
+  }
+}
+@include movin(100px, 0px, 1);
+@include movin(200px, 50px, 2);
+@include movin(300px, 100px, 3);
