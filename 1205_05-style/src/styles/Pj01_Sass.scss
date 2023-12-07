@@ -1,0 +1,75 @@
+@mixin circle-width($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin image-width($size) {
+  position: absolute;
+  width: $size;
+}
+
+.larva {
+  position: relative;
+  height: 300px;
+
+  .eye {
+    position: absolute;
+
+    &.eye-white {
+      @include circle-width(40px);
+      background-color: rgb(255, 255, 255);
+      top: 15px;
+      left: 15px;
+    }
+
+    &.eye-black {
+      @include circle-width(30px);
+      background-color: rgb(0, 0, 0);
+      top: 1px;
+      left: 1px;
+    }
+  }
+
+  .body {
+    @include circle-width(100px);
+    position: absolute;
+
+    &.body1 {
+      top: 100px;
+      left: 100px;
+      background-color: rgb(0, 0, 166);
+    }
+
+    &.body2 {
+      top: 120px;
+      left: 170px;
+      background-color: rgb(36, 61, 206);
+    }
+
+    &.body3 {
+      top: 120px;
+      left: 220px;
+      background-color: rgb(52, 118, 231);
+    }
+
+    &.body4 {
+      top: 140px;
+      left: 290px;
+      background-color: rgb(47, 146, 233);
+    }
+
+    &.body5 {
+      top: 170px;
+      left: 340px;
+      background-color: rgb(140, 191, 253);
+      z-index: 10;
+    }
+  }
+
+  .grass {
+    @include image-width(400px);
+    top: 160px;
+    left: 100px;
+  }
+}
