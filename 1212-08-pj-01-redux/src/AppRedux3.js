@@ -1,7 +1,12 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { increase, decrease } from "./store/counterReducer";
+// 리덕스 스토어 조회를 위한 함수
+
+import { increase, decrease } from "./store/CalcReducer";
+// 계산기능
+
 import { Box1Container } from "./containers/BoxesContainer";
+// 해당 요소에 적용되는 기능
 
 // containers 폴더
 // redux store에 직접적으로 접근하는 컴포넌트를 모아두기 위해서.

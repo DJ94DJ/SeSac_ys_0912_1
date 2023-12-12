@@ -42,7 +42,7 @@
 //   </Provider>
 // );
 
-// ver3. redux 구조화 + containters 컴포넌트 톨더 / presentational 컴포넌트 폴더 분리
+// ver4. redux 구조화 + containters 컴포넌트 톨더 / presentational 컴포넌트 폴더 분리
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
