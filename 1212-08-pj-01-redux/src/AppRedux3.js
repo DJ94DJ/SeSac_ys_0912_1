@@ -1,11 +1,11 @@
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 // 리덕스 스토어 조회를 위한 함수
 
-import { increase, decrease } from "./store/CalcReducer";
+// import { increase, decrease } from "./store/CalcReducer";
 // 계산기능
 
-import { Box1Container } from "./containers/BoxesContainer";
+import { BankContainer } from "./containers/BankContainer";
 // 해당 요소에 적용되는 기능
 
 // containers 폴더
@@ -18,7 +18,7 @@ import { Box1Container } from "./containers/BoxesContainer";
 function AppRedux3() {
   return (
     <div>
-      <Box1Container />
+      <BankContainer />
     </div>
   );
 }
