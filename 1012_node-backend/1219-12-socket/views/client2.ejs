@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h3>소켓 연습</h3>
+    <button onclick="hello()">hello</button>
+    <button onclick="entry()">entry</button>
+    <button onclick="bye()">bye</button>
+    <div class="msgContainer"></div>
+
+    <script>
+      // 소켓 여는법
+      const socket = io()
+      // 소켓을 이용해 데이터 전송하는 함수는 : emit 
+      // 소켓을 이용해 데이터 수신하는 이벤트는 : on
+
+      socket.on("msg", function(res) {
+        const messageContainer = document.getElementsByClassName("msgContainer")[0]
+        messageContainer.innerHTML = "";
+        const msg = document.createElement("p")
+        msg.textContent = res.msg
+        messageContainer.appendChild(msg)
+      })
+
+      function hello() {
+        // (전송할 이벤트 이름, [(데이터)]). 
+        // 인자가 두개지만 하나만 보내도됨.
+        // 전송 데이터 형식은 자유롭게 (문자, 숫자, 객체 다가능)
+        socket.emit("hello", {
+          msg: "안녕하쇼"
+          // 터미널에 나온다.
+        })
+      }
+
+      function entry() {
+        // (전송할 이벤트 이름, [(데이터)]). 
+        // 인자가 두개지만 하나만 보내도됨.
+        // 전송 데이터 형식은 자유롭게 (문자, 숫자, 객체 다가능)
+        socket.emit("entry", {
+          msg: "들어왓슈?"
+          // 터미널에 나온다.
+        })
+      }
+
+      function bye() {
+        // (전송할 이벤트 이름, [(데이터)]). 
+        // 인자가 두개지만 하나만 보내도됨.
+        // 전송 데이터 형식은 자유롭게 (문자, 숫자, 객체 다가능)
+        socket.emit("bye", {
+          msg: "잘가유"
+          // 터미널에 나온다.
+        })
+      }
+
+      // const socket = io()
+
+      //   socket.on("msg", function(res) {
+      //     const messageContainer = document.getElementsByClassName("msgContainer")[0]
+      //     const message = document.createElement("p")
+      //     message.textContent = res.msg
+      //     messageContainer.appendChild(message)
+      //   })
+
+      //   function hello() {
+      //     socket.emit("hello", {
+      //       msg: "안녕하시와요"
+      //     })
+      //   }
+    </script>
+
+  </body>
+</html>
