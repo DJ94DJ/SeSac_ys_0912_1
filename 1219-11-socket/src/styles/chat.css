@@ -45,3 +45,8 @@
 .input-container > input {
   flex-grow: 1;
 }
+
+.entry-test {
+  color: red;
+  font-weight: bold;
+}

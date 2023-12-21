@@ -41,10 +41,14 @@ export default function Chatting2() {
     //   const newChatList = [...chatList, { type: "notice", content: res.msg }];
     //   setChatList(newChatList);
     // });
+    socket.on("entry-failed", (res) => {
+      alert(res.msg);
+    });
   }, []);
 
   useEffect(() => {
     // [해결 1] chatList가 변경될 때마다 event를 다시 만들도록 함.
+
     // [이슈 2] notice이벤트가 chatList가 변경될 때마다 누적됨.
     // socket.on("notice", (res) => {
     //   console.log("notice");
@@ -102,9 +106,9 @@ export default function Chatting2() {
         <li>닉네임 중복 방지</li>
         <li>퇴장 시키기</li>
         {duplicateId && (
-          <div className="entry-test">
-            '{duplicateIdInput}'은 중복된 아이디입니다.
-          </div>
+          <li className="entry-test">
+            '{duplicateIdInput}'은(는) 중복된 아이디입니다.
+          </li>
         )}
       </ul>
 
