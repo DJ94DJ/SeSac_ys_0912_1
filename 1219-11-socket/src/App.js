@@ -19,6 +19,7 @@ function App() {
 
       {/* 4, 5 실습 */}
       <Chatting3 />
+      <div className="backdrop"></div>
     </div>
   );
 }
