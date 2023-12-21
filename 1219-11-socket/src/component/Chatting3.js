@@ -3,6 +3,16 @@ import { useCallback, useEffect, useState, useMemo } from "react";
 import Chat from "./Chat";
 import Notice from "./Notice";
 import io from "socket.io-client";
+import { getSvgPath } from "figma-squircle";
+
+const svgPath = getSvgPath({
+  width: 700,
+  height: 700,
+  cornerRadius: 80,
+  cornerSmoothing: 0.85,
+  // You can also adjust the radius of each corner individually
+  preserveSmoothing: true,
+});
 
 const socket = io.connect("http://localhost:8000", { autoConnect: false });
 export default function Chatting3() {
@@ -98,46 +108,110 @@ export default function Chatting3() {
   };
   return (
     <>
-      <h3>실습 4, 5번</h3>
-      <ul>
-        <li>채팅창 메세지 전송</li>
-        <li>DM 기능 구현</li>
-      </ul>
-
-      {userId ? (
-        <>
-          <div>{userId}님 환영합니다.</div>
-          <div className="chat-container">
-            {chatList.map((chat, i) => {
-              if (chat.type === "notice") return <Notice key={i} chat={chat} />;
-              else return <Chat key={i} chat={chat} />;
-            })}
+      <div className="page">
+        가나다라마바사
+        <h3>실습 4, 5번</h3>
+        <ul>
+          <li>채팅창 메세지 전송</li>
+          <li>DM 기능 구현</li>
+        </ul>
+        <div
+          className="center"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <div
+            className="backdrop-container"
+            style={{
+              width: 700,
+              height: 700,
+              // clipPath: `path('${svgPath}')`,
+              // backgroundColor: "ghostwhite",
+              // filter: "drop-shadow(0rem 0rem 50px red)",
+            }}
+          >
+            <div className="app-container">
+              {userId ? (
+                <>
+                  <div>{userId}님 환영합니다.</div>
+                  <div className="chat-container">
+                    {chatList.map((chat, i) => {
+                      if (chat.type === "notice")
+                        return <Notice key={i} chat={chat} />;
+                      else return <Chat key={i} chat={chat} />;
+                    })}
+                  </div>
+                  <div className="input-container">
+                    <select
+                      value={dmTo}
+                      onChange={(e) => setdmTo(e.target.value)}
+                    >
+                      <option value="all">전체</option>
+                      {userListOption}
+                    </select>
+                    <input
+                      type="text"
+                      value={msgInput}
+                      onChange={(e) => setMsgInput(e.target.value)}
+                    />
+                    <button onClick={sendMsg}>전송</button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      value={userIdInput}
+                      onChange={(e) => setUserIdInput(e.target.value)}
+                    />
+                    <button onClick={entryChat}>입장</button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-          <div className="input-container">
-            <select value={dmTo} onChange={(e) => setdmTo(e.target.value)}>
-              <option value="all">전체</option>
-              {userListOption}
-            </select>
-            <input
-              type="text"
-              value={msgInput}
-              onChange={(e) => setMsgInput(e.target.value)}
-            />
-            <button onClick={sendMsg}>전송</button>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="input-container">
-            <input
-              type="text"
-              value={userIdInput}
-              onChange={(e) => setUserIdInput(e.target.value)}
-            />
-            <button onClick={entryChat}>입장</button>
-          </div>
-        </>
-      )}
+        </div>
+        <div className="backdrop-container2" style={{ filter: "blur(1px)" }}>
+          <div
+            className="white-drop"
+            style={{
+              width: 700,
+              height: 700,
+              clipPath: `path('${svgPath}')`,
+              background:
+                "linear-gradient(135deg,rgba(224,225,232,255),  rgba(255,255,255,255))",
+              // filter: "drop-shadow(0rem 0rem 50px red)",
+            }}
+          ></div>
+        </div>
+        <div
+          className="backdrop-container-shadow1"
+          style={{
+            width: 700,
+            height: 700,
+            borderRadius: 60,
+            backgroundColor: "rgba(255, 255, 255, 0.75)",
+            filter: "blur(30px)",
+            // filter: "drop-shadow(0rem 0rem 50px red)",
+          }}
+        ></div>
+        <div
+          className="backdrop-container-shadow2"
+          style={{
+            width: 700,
+            height: 700,
+            borderRadius: 60,
+            backgroundColor: "rgba(37, 37, 60, 0.2)",
+            filter: "blur(20px)",
+            // filter: "drop-shadow(0rem 0rem 50px red)",
+          }}
+        ></div>
+      </div>
     </>
   );
 }
